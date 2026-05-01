@@ -91,7 +91,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
               c.charset='utf-8';c.src='https://web-sdk.smartlook.com/recorder.js';h.appendChild(c);
             })(document);
-            smartlook('init', '10978ec4f57b8dee61bf8e1b04463ba3f0e0616d', { region: 'eu' });
+            smartlook('init', 'aca46ea591b1492fb9ded798a83c9344adb140ee', { region: 'eu' });
           `
         }} />
       </head>
