@@ -4,8 +4,8 @@ import RoadsideAssistance from "components/RoadsideAssistance";
 
 export const dynamic = 'force-dynamic';
 
-const DEFAULT_TITLE = "Roadside Assistance Near Me | 24/7 Mobile Tyre Help";
-const DEFAULT_DESCRIPTION = "Need roadside assistance near me? Fast 24/7 roadside tyre help at home, work, or roadside. Call now for local roadside support.";
+const DEFAULT_TITLE = "Roadside Tyre Assistance Near Me | Fast Mobile Tyre Help";
+const DEFAULT_DESCRIPTION = "Need roadside tyre assistance near me? Fast mobile tyre call out for flat tyres, roadside fitting and urgent tyre help. Call now.";
 
 let cachedLocations = null;
 function getLocations() {
