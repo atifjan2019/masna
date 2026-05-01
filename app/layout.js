@@ -62,6 +62,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             gtag('js', new Date());
             gtag('config', 'AW-11284691642');
             gtag('config', 'AW-7570768229');
+            gtag('config', 'AW-18057086949');
 
             window.gtag_report_conversion = function(url) {
               var callback = function () {
@@ -69,6 +70,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   window.location = url;
                 }
               };
+              gtag('event', 'conversion', {
+                  'send_to': 'AW-18057086949/86eSCP6--qUcEOWPpaJD',
+                  'value': 1.0,
+                  'currency': 'GBP',
+                  'event_callback': callback
+              });
               gtag('event', 'conversion', {
                   'send_to': 'AW-11284691642/IcCCCNFQ8cMZELr1-oQq',
                   'value': 1.0,
@@ -82,6 +89,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               });
               return false;
             };
+
+            document.addEventListener('click', function(event) {
+              if (event.defaultPrevented) return;
+              var telLink = event.target && event.target.closest ? event.target.closest('a[href^="tel:"]') : null;
+              if (!telLink) return;
+              if (typeof window.gtag_report_conversion !== 'function') return;
+
+              event.preventDefault();
+              window.gtag_report_conversion(telLink.getAttribute('href'));
+            });
           `
         }} />
         <script dangerouslySetInnerHTML={{
