@@ -316,19 +316,19 @@ ul.ulstyle li {
      .header-btn {
           width: calc(100% - 40px);
           max-width: 300px;
-          min-height: 72px;
+          min-height: 50px;
           height: auto;
-          padding: 10px 14px 10px 76px;
+          padding: 6px 14px 6px 62px;
      }
 
      .header-btn .pnum {
-          font-size: 22px;
-          font-weight: 700;
+          font-size: 24px;
+          font-weight: 800;
      }
 
      .header-btn p {
-          line-height: 1.05;
-          margin-bottom: 2px !important;
+          line-height: 1;
+          margin-bottom: 0 !important;
      }
 
      .header-btn small {
@@ -344,8 +344,8 @@ ul.ulstyle li {
      }
 
      .btn-link .icon {
-          width: 56px;
-          height: 56px;
+          width: 46px;
+          height: 46px;
           left: 8px;
      }
 }

@@ -23,7 +23,7 @@ export default function HomeBody({ keywordText = "mobile tyre fitting near me", 
   return (
     <>
       <div id="wa" className="d-flex align-items-center gap-2">
-          <a href="https://api.whatsapp.com/send?phone=+447350655951%E2%80%AC&text=Need+Help%3F" className="whatsapp-button"
+          <a href="https://api.whatsapp.com/send?phone=%2B447722127759&text=Need+Help%3F" className="whatsapp-button"
               target="_blank" aria-label="Chat on WhatsApp">
               <h5>Need Help?</h5>
 
@@ -36,11 +36,11 @@ export default function HomeBody({ keywordText = "mobile tyre fitting near me", 
 
           <header className="header-section d-md-none">
               <div className="d-flex align-items-center justify-content-center flex-column">
-                  <a id="callnow" onClick={(e) => handleCall(e, 'tel:03300438437')} href="tel:03300438437" className="btn-link header-btn mx-auto mx-md-0 text-start">
+                  <a id="callnow" onClick={(e) => handleCall(e, 'tel:07883288831')} href="tel:07883288831" className="btn-link header-btn mx-auto mx-md-0 text-start">
                       <div className="icon">
                           <i className="fa-solid fa-phone"></i>
                       </div>
-                      <p className="m-0 text-22 pnum">0330 043 8437</p>
+                      <p className="m-0 text-22 pnum">0788 328 8831</p>
                   </a>
                   <p className="text-16 mb-0 para">ETA From 20 mins in {etaLocationText}</p>
               </div>
@@ -109,8 +109,8 @@ export default function HomeBody({ keywordText = "mobile tyre fitting near me", 
                       </ul>
 
                       <div className="mt-4 pt-2">
-                          <a id="callnow" onClick={(e) => handleCall(e, 'tel:03300438437')} href="tel:03300438437" className="btn-link mx-auto mx-md-0">
-                              <p className="m-0 text-22 pnum">0330 043 8437</p>
+                          <a id="callnow" onClick={(e) => handleCall(e, 'tel:07883288831')} href="tel:07883288831" className="btn-link mx-auto mx-md-0">
+                              <p className="m-0 text-22 pnum">0788 328 8831</p>
                               <small className="text-14">Call Now for Mobile Tyre Fitting</small>
                           </a>
                           <p className="text-16 mb-0 text-center text-md-start">Local mobile tyre fitters available for home, roadside, and workplace tyre fitting.</p>
@@ -177,8 +177,8 @@ export default function HomeBody({ keywordText = "mobile tyre fitting near me", 
                   </div>
 
                   <div className="mt-4 pt-2">
-                      <a id="callnow" onClick={(e) => handleCall(e, 'tel:03300438437')} href="tel:03300438437" className="btn-link mx-auto">
-                          <p className="m-0 text-22 pnum">0330 043 8437</p>
+                      <a id="callnow" onClick={(e) => handleCall(e, 'tel:07883288831')} href="tel:07883288831" className="btn-link mx-auto">
+                          <p className="m-0 text-22 pnum">0788 328 8831</p>
                           <small className="text-14">Call Now for Mobile Tyre Fitting</small>
                       </a>
                       <p className="text-16 text-center mb-0">Local mobile tyre fitters available for home, roadside, and workplace tyre fitting.</p>
@@ -193,8 +193,8 @@ export default function HomeBody({ keywordText = "mobile tyre fitting near me", 
                   <h2 className="text-60 highlight-text text-center">Mobile Tyre Fitting Near You <br />{hasReadableLocation ? <>in <span className="text-white">{locationName}</span> & <span className="text-white">Outskirts</span></> : null}</h2>
 
                   <div className="mt-4 pt-2">
-                      <a id="callnow" onClick={(e) => handleCall(e, 'tel:03300438437')} href="tel:03300438437" className="btn-link mx-auto">
-                          <p className="m-0 text-22 pnum">0330 043 8437</p>
+                      <a id="callnow" onClick={(e) => handleCall(e, 'tel:07883288831')} href="tel:07883288831" className="btn-link mx-auto">
+                          <p className="m-0 text-22 pnum">0788 328 8831</p>
                           <small className="text-14">Call Now for Mobile Tyre Fitting</small>
                       </a>
                       <p className="text-16 text-center mb-0 text-white">Local mobile tyre fitters available for home, roadside, and workplace tyre fitting.</p>
@@ -417,8 +417,8 @@ export default function HomeBody({ keywordText = "mobile tyre fitting near me", 
                           </div>
 
                           <div className="mt-4 pt-2">
-                              <a id="callnow" onClick={(e) => handleCall(e, 'tel:03300438437')} href="tel:03300438437" className="btn-link mx-auto">
-                                  <p className="m-0 text-22 pnum">0330 043 8437</p>
+                              <a id="callnow" onClick={(e) => handleCall(e, 'tel:07883288831')} href="tel:07883288831" className="btn-link mx-auto">
+                                  <p className="m-0 text-22 pnum">0788 328 8831</p>
                                   <small className="text-14">Call Now for Mobile Tyre Fitting</small>
                               </a>
                               <p className="text-16 text-center mb-0">Local mobile tyre fitters available for home, roadside, and workplace tyre fitting.</p>
@@ -595,7 +595,7 @@ export default function HomeBody({ keywordText = "mobile tyre fitting near me", 
               <div className="ft-content text-center">
 
                   <p className="text-16 text-h text-white mb-0">
-                      Mobile Tyres Fitting United Kingdom
+                      Tyre Fitting Near Me LTD
                   </p>
                   <p className="text-16 text-white mb-0">Copyright 2026, all rights reserved.</p>
 

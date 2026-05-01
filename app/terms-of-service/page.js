@@ -113,8 +113,8 @@ export default function TermsOfServicePage() {
         <h2 className="text-22 blue-text">12. Contact Us</h2>
         <p className="text-16">
           For questions about these Terms of Service, please contact us at{" "}
-          <a href="tel:03300438437" className="highlight-text" style={{ textDecoration: "none" }}>
-            0330 043 8437
+          <a href="tel:07883288831" className="highlight-text" style={{ textDecoration: "none" }}>
+            0788 328 8831
           </a>.
         </p>
       </section>
