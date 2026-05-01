@@ -3,8 +3,13 @@
 import React, { useState } from 'react';
 import Script from 'next/script';
 
-export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", locationName = "United Kingdom" }) {
+export default function EmergencyTyreRepair({ locationName = null }) {
     const [openFaq, setOpenFaq] = useState(null);
+    const hasReadableLocation = Boolean(locationName);
+    const etaLocationText = hasReadableLocation ? locationName : 'your area';
+    const reviewHeading = hasReadableLocation
+        ? <>Trusted by <span className="highlight-text">1000s</span> Across {locationName} & Nearby Areas</>
+        : <>Trusted by <span className="highlight-text">1000s</span> for Emergency Tyre Repair Near You</>;
 
     const handleCall = (e, telUrl) => {
         e.preventDefault();
@@ -21,24 +26,22 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                 <a href="https://api.whatsapp.com/send?phone=%2B447722127759&text=Need+Help%3F" className="whatsapp-button"
                     target="_blank" aria-label="Chat on WhatsApp">
                     <h5>Need Help?</h5>
-
                     <img src="/assets/imgs/optimized/whatsapp-80.webp" width="40" height="40" alt="WhatsApp" loading="lazy"
                         decoding="async" />
                 </a>
             </div>
 
-            <div className="wrapper position-relative ">
+            <div className="wrapper position-relative">
 
-                <header className="header-section  d-md-none">
+                <header className="header-section d-md-none">
                     <div className="d-flex align-items-center justify-content-center flex-column">
                         <a id="callnow" onClick={(e) => handleCall(e, 'tel:07883288831')} href="tel:07883288831" className="btn-link header-btn mx-auto mx-md-0 text-start">
                             <div className="icon">
                                 <i className="fa-solid fa-phone"></i>
                             </div>
                             <p className="m-0 text-22 pnum">0788 328 8831</p>
-                            <small className="text-14">24/7 Service - Call Now</small>
                         </a>
-                        <p className="text-16 mb-0 para">ETA From 20 mins in {locationName}</p>
+                        <p className="text-16 mb-0 para">ETA From 20 mins in {etaLocationText}</p>
                     </div>
                 </header>
 
@@ -46,75 +49,69 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                     <div className="row flex-row-reverse flex-md-row align-items-center">
                         <div className="col-md-6 order-1 order-md-0">
                             <h4 className="text-32 highlight-text">24 Hours</h4>
-                            <h1 className="text-42">{titleKwd} <br />
-                                in <span className="highlight-text">{locationName}</span> & Outskirts</h1>
+                            <h1 className="text-42">Emergency Tyre Repair Near Me <br />
+                                {hasReadableLocation ? <><span>in </span><span className="highlight-text">{locationName}</span></> : null}</h1>
+                            <p className="text-18">Need emergency tyre repair near me? Our local mobile tyre repair team comes to your home, workplace, or roadside to help with flat tyres, tyre damage, and urgent tyre problems.</p>
                             <p className="text-26 blue-text border-bottom">ETA from 20 minutes</p>
                             <ul className="ulstyle">
                                 <li className="text-22">
                                     <svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24" data-id="icon-check_box-duotone">
                                         <path fill="none" d="M0 0h24v24H0V0z"></path>
-                                        <path opacity=".3"
-                                            d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
-                                        <path
-                                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
+                                        <path opacity=".3" d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
+                                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
                                     </svg>
-                                    Emergency Roadside Assistance
+                                    Emergency Tyre Repair Near Me
                                 </li>
-                                <li className="text-22"><svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24"
-                                    data-id="icon-check_box-duotone">
-                                    <path fill="none" d="M0 0h24v24H0V0z"></path>
-                                    <path opacity=".3"
-                                        d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
-                                    <path
-                                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
-                                </svg> Brand New Tyres - Best Brands</li>
-                                <li className="text-22"><svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24"
-                                    data-id="icon-check_box-duotone">
-                                    <path fill="none" d="M0 0h24v24H0V0z"></path>
-                                    <path opacity=".3"
-                                        d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
-                                    <path
-                                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
-                                </svg> Affordable & Transparent Prices</li>
-                                <li className="text-22"><svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24"
-                                    data-id="icon-check_box-duotone">
-                                    <path fill="none" d="M0 0h24v24H0V0z"></path>
-                                    <path opacity=".3"
-                                        d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
-                                    <path
-                                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
-                                </svg> Trusted & Reliable Service</li>
-                                <li className="text-22"><svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24"
-                                    data-id="icon-check_box-duotone">
-                                    <path fill="none" d="M0 0h24v24H0V0z"></path>
-                                    <path opacity=".3"
-                                        d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
-                                    <path
-                                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
-                                </svg> 24/7 Availability - Call Now</li>
-                                <li className="text-22"><svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24"
-                                    data-id="icon-check_box-duotone">
-                                    <path fill="none" d="M0 0h24v24H0V0z"></path>
-                                    <path opacity=".3"
-                                        d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
-                                    <path
-                                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
-                                </svg> 100% Satisfaction Guaranteed</li>
-
+                                <li className="text-22">
+                                    <svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24" data-id="icon-check_box-duotone">
+                                        <path fill="none" d="M0 0h24v24H0V0z"></path>
+                                        <path opacity=".3" d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
+                                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
+                                    </svg> Flat Tyre Call Out Service
+                                </li>
+                                <li className="text-22">
+                                    <svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24" data-id="icon-check_box-duotone">
+                                        <path fill="none" d="M0 0h24v24H0V0z"></path>
+                                        <path opacity=".3" d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
+                                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
+                                    </svg> Roadside Tyre Repair
+                                </li>
+                                <li className="text-22">
+                                    <svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24" data-id="icon-check_box-duotone">
+                                        <path fill="none" d="M0 0h24v24H0V0z"></path>
+                                        <path opacity=".3" d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
+                                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
+                                    </svg> Mobile Tyre Repair Near Me
+                                </li>
+                                <li className="text-22">
+                                    <svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24" data-id="icon-check_box-duotone">
+                                        <path fill="none" d="M0 0h24v24H0V0z"></path>
+                                        <path opacity=".3" d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
+                                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
+                                    </svg> 24/7 Emergency Tyre Help
+                                </li>
+                                <li className="text-22">
+                                    <svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24" data-id="icon-check_box-duotone">
+                                        <path fill="none" d="M0 0h24v24H0V0z"></path>
+                                        <path opacity=".3" d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
+                                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
+                                    </svg> Clear Prices Before We Arrive
+                                </li>
                             </ul>
 
                             <div className="mt-4 pt-2">
                                 <a id="callnow" onClick={(e) => handleCall(e, 'tel:07883288831')} href="tel:07883288831" className="btn-link mx-auto mx-md-0">
                                     <p className="m-0 text-22 pnum">0788 328 8831</p>
-                                    <small className="text-14">24/7 Service - Call Now</small>
+                                    <small className="text-14">Call Now For Emergency Tyre Repair</small>
                                 </a>
+                                <p className="text-16 mb-0 text-center text-md-start">Flat tyre or pressure loss? Call now for fast mobile tyre repair at your location.</p>
                             </div>
                         </div>
 
                         <div className="col-md-6 order-0">
                             <div className="hero-img">
                                 <div className="bg-shade"></div>
-                                <img src="/1.webp" width="700" height="700" alt="Mobile tyre fitting van" fetchPriority="high" decoding="async" />
+                                <img src="/1.webp" width="700" height="700" alt="Emergency tyre repair van" fetchPriority="high" decoding="async" />
                             </div>
                         </div>
 
@@ -124,8 +121,8 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                 <section className="step-section d-none d-md-block">
                     <div className="width-fixed">
                         <div className="text-center">
-                            <h2 className="text-50 highlight-text mb-0">Mobile Tyre Fitting - We Come to You</h2>
-                            <p className="text-36 blue-text mt-0">Get Back on The Road in 3 Easy Steps</p>
+                            <h2 className="text-50 highlight-text mb-0">Emergency Tyre Repair Near You - We Come to You</h2>
+                            <p className="text-36 blue-text mt-0">Get Fast Tyre Help in 3 Easy Steps</p>
                         </div>
 
                         <div className="row justify-content-center text-center">
@@ -133,12 +130,11 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                                 <div className="step-card">
                                     <div className="step-img">
                                         <img src="/assets/imgs/optimized/contact-220.webp" width="100"
-                                            alt="Mobile tyre fitting service" loading="lazy" decoding="async" />
+                                            alt="Emergency tyre repair contact and dispatch" loading="lazy" decoding="async" />
                                     </div>
                                     <div className="step-text">
                                         <h4 className="text-22 highlight-text text-uppercase">Contact and Dispatch</h4>
-                                        <p className="text-18">When you find yourself in need of emergency tyre fitting or roadside
-                                            assistance, simply give us a call.</p>
+                                        <p className="text-18">When you need emergency tyre repair near me, call our team and we&apos;ll dispatch a local mobile tyre technician to your location.</p>
                                     </div>
                                 </div>
                             </div>
@@ -147,12 +143,11 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                                 <div className="step-card">
                                     <div className="step-img step-lg-img">
                                         <img src="/assets/imgs/optimized/mobile-360.webp" width="100"
-                                            alt="Mobile tyre fitting service" loading="lazy" decoding="async" />
+                                            alt="Mobile tyre repair service" loading="lazy" decoding="async" />
                                     </div>
                                     <div className="step-text">
-                                        <h4 className="text-22 highlight-text text-uppercase">Mobile Tyre Fitting</h4>
-                                        <p className="text-18">Once our mobile unit arrives, we will efficiently fit your tyres. We
-                                            use state-of-the-art equipment to ensure safe and precise tyre fitting.</p>
+                                        <h4 className="text-22 highlight-text text-uppercase">Mobile Tyre Repair</h4>
+                                        <p className="text-18">Our mobile tyre repair service arrives with the tools and equipment needed to inspect the tyre and help you safely.</p>
                                     </div>
                                 </div>
                             </div>
@@ -161,12 +156,11 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                                 <div className="step-card">
                                     <div className="step-img">
                                         <img src="/assets/imgs/optimized/back-220.webp" width="100"
-                                            alt="Mobile tyre fitting service" loading="lazy" decoding="async" />
+                                            alt="Back on the road after tyre repair" loading="lazy" decoding="async" />
                                     </div>
                                     <div className="step-text">
                                         <h4 className="text-22 highlight-text text-uppercase">Back on the Road</h4>
-                                        <p className="text-18">We believe in transparent and fair pricing. Before we begin any tyre
-                                            fitting services, you'll receive a clear explanation of the costs involved.</p>
+                                        <p className="text-18">We repair, replace, or advise on the safest option, then help you get moving again with no garage visit needed.</p>
                                     </div>
                                 </div>
                             </div>
@@ -176,9 +170,10 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                         <div className="mt-4 pt-2">
                             <a id="callnow" onClick={(e) => handleCall(e, 'tel:07883288831')} href="tel:07883288831" className="btn-link mx-auto">
                                 <p className="m-0 text-22 pnum">0788 328 8831</p>
-                                <small className="text-14">24/7 Service - Call Now</small>
+                                <small className="text-14">Call Now For Tyre Repair</small>
                             </a>
-                            <p className="text-16 text-center mb-0">ETA - From 20 mins in {locationName}</p>
+                            <p className="text-16 text-center mb-0">Fast mobile tyre repair for flat tyres, roadside issues, and urgent tyre problems.</p>
+                            <p className="text-16 text-center mb-0">ETA - From 20 mins in {etaLocationText}</p>
                         </div>
 
                     </div>
@@ -186,16 +181,15 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
 
                 <section className="service-section">
                     <div className="width-fixed px-md-5">
-                        <h2 className="text-60 highlight-text text-center"><span style={{ textTransform: "capitalize" }}>{titleKwd}</span> <br /> in <span className="text-white">{locationName}</span> & <span
-                            className="text-white">Outskirts</span>
-                        </h2>
+                        <h2 className="text-60 highlight-text text-center">Emergency Tyre Repair Near You <br />{hasReadableLocation ? <>in <span className="text-white">{locationName}</span></> : null}</h2>
 
                         <div className="mt-4 pt-2">
                             <a id="callnow" onClick={(e) => handleCall(e, 'tel:07883288831')} href="tel:07883288831" className="btn-link mx-auto">
                                 <p className="m-0 text-22 pnum">0788 328 8831</p>
-                                <small className="text-14">24/7 Service - Call Now</small>
+                                <small className="text-14">Call Now For Emergency Tyre Repair</small>
                             </a>
-                            <p className="text-16 text-center mb-0 text-white">ETA - From 20 mins in {locationName}</p>
+                            <p className="text-16 text-center mb-0 text-white">24/7 mobile tyre repair available when tyre problems happen.</p>
+                            <p className="text-16 text-center mb-0 text-white">ETA - From 20 mins in {etaLocationText}</p>
                         </div>
                     </div>
                 </section>
@@ -204,13 +198,13 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                     <div className="width-fixed">
                         <div className="text-center mb-4">
                             <h4 className="blue-text text-24">Your Rapid Response Partner for</h4>
-                            <h2 className="highlight-text text-42">Convenient {titleKwd}</h2>
+                            <h2 className="highlight-text text-42">Fast Emergency Tyre Repair Near You</h2>
                         </div>
                         <div className="row pt-4">
 
                             <div className="col-md-7">
                                 <div className="fitting-img">
-                                    <img src="/rapid.webp" alt="Convenient mobile tyre fitting" loading="lazy" decoding="async" />
+                                    <img src="/rapid.webp" alt="Fast emergency tyre repair near you" loading="lazy" decoding="async" />
                                 </div>
                             </div>
 
@@ -221,9 +215,8 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                                         <i className="fa-solid fa-circle-arrow-right"></i>
                                     </div>
                                     <div className="">
-                                        <h5 className="text-20">Brand New Tyres:</h5>
-                                        <p className="text-20 fw-light">We offer a wide selection of brand new tyres to suit all
-                                            budgets and preferences. Available 24/7 in {locationName} & Outskirts.</p>
+                                        <h5 className="text-20">Flat Tyre Help:</h5>
+                                        <p className="text-20 fw-light">If you have a flat tyre, our mobile tyre repair team can come to your location and check the safest solution. We inspect the tyre first and only repair it where it is safe and suitable. If the tyre cannot be repaired safely, we can advise the best replacement option.</p>
                                     </div>
                                 </div>
 
@@ -232,9 +225,8 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                                         <i className="fa-solid fa-circle-arrow-right"></i>
                                     </div>
                                     <div className="">
-                                        <h5 className="text-20">TPMS (Tyre Pressure Monitoring System):</h5>
-                                        <p className="text-20 fw-light">Our experts provide TPMS installation and maintenance to
-                                            ensure your tyres are always at optimal pressure for safe driving.</p>
+                                        <h5 className="text-20">Roadside Tyre Repair:</h5>
+                                        <p className="text-20 fw-light">We provide roadside tyre repair support when you are stuck away from home and need urgent tyre help.</p>
                                     </div>
                                 </div>
 
@@ -243,11 +235,8 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                                         <i className="fa-solid fa-circle-arrow-right"></i>
                                     </div>
                                     <div className="">
-                                        <h5 className="text-20">Tyre Maintenance:</h5>
-                                        <p className="text-20 fw-light">Seamless tyre fitting and maintenance tailored to your
-                                            needs. Trust us for safe and efficient mobile tyre services in
-                                            {locationName} &
-                                            Outskirts.</p>
+                                        <h5 className="text-20">Mobile Tyre Repair:</h5>
+                                        <p className="text-20 fw-light">Our local mobile tyre technicians help with tyre damage, puncture concerns, pressure loss, and emergency tyre problems.</p>
                                     </div>
                                 </div>
 
@@ -256,15 +245,10 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                     </div>
                 </section>
 
-
-
-
                 <section className="customer-section">
                     <div className="width-fixed">
                         <div className="text-center">
-                            <h4 className="text-36 blue-text">Trusted by <span className="highlight-text">1000s</span> Across
-                                {locationName}
-                                & Outskirts.</h4>
+                            <h4 className="text-36 blue-text">{reviewHeading}</h4>
                             <h2 className="text-60 highlight-text">OUR CUSTOMERS LOVE US</h2>
                         </div>
 
@@ -274,17 +258,12 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                                 <div className="customer-card">
                                     <div className="c-profile">
                                         <img src="/assets/imgs/optimized/jessy-160.webp" width="100"
-                                            alt="Customer review - mobile tyre fitting service" loading="lazy" decoding="async" />
+                                            alt="Customer review - emergency tyre repair service" loading="lazy" decoding="async" />
                                     </div>
 
                                     <div className="c-card-text text-center">
                                         <i className="fa-solid fa-quote-left quote-icon"></i>
-                                        <p className="text-18 text-white mb-0">Absolutely impressed with the {titleKwd}
-                                            service! When I had a flat tyre on
-                                            a deserted road, I called for help, and the team arrived within 15 minutes. They
-                                            were professional, efficient, and had my tyre changed in no time. Highly recommended
-                                            for their quick response and top-notch service!
-                                        </p>
+                                        <p className="text-18 text-white mb-0">Absolutely impressed with the emergency tyre repair service. I had a flat tyre and the local technician arrived quickly, checked everything, and got me moving again.</p>
                                         <p className="text-18 text-white">Highly recommend!</p>
                                     </div>
 
@@ -306,19 +285,13 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                                 <div className="customer-card">
                                     <div className="c-profile">
                                         <img src="/assets/imgs/optimized/emma-160.webp" width="100"
-                                            alt="Mobile tyre fitting service" loading="lazy" decoding="async" />
+                                            alt="Customer review - mobile tyre repair service" loading="lazy" decoding="async" />
                                     </div>
 
                                     <div className="c-card-text text-center">
                                         <i className="fa-solid fa-quote-left quote-icon"></i>
-                                        <p className="text-18 text-white mb-0">I cannot express how grateful I am for the 24-hour
-                                            {titleKwd} service. When my tyre went flat late at night, I called for
-                                            assistance, and the team arrived within 20 minutes. Their commitment to 24/7
-                                            availability is unmatched, and the professionalism of the crew made the entire
-                                            experience stress-free.
-                                        </p>
+                                        <p className="text-18 text-white mb-0">I needed mobile tyre repair near me and the response was fast. The team was clear, friendly, and made the whole process easy.</p>
                                         <p className="text-18 text-white">Highly recommend!</p>
-
                                     </div>
 
                                     <div className="c-card-foot text-center">
@@ -339,19 +312,12 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                                 <div className="customer-card">
                                     <div className="c-profile">
                                         <img src="/assets/imgs/optimized/josh-160.webp" width="100"
-                                            alt="Mobile tyre fitting service" loading="lazy" decoding="async" />
+                                            alt="Customer review - roadside tyre repair" loading="lazy" decoding="async" />
                                     </div>
 
                                     <div className="c-card-text text-center">
                                         <i className="fa-solid fa-quote-left quote-icon"></i>
-                                        <p className="text-18 text-white mb-0">A flat tyre is never convenient, but this mobile tyre
-                                            fitting service turned a stressful situation into a breeze. Their team arrived
-                                            promptly, assessed the issue, and had my tyre replaced efficiently. The
-                                            professionalism and courtesy of the staff made a significant difference. I highly
-                                            recommend their {titleKwd} service.
-
-
-                                        </p>
+                                        <p className="text-18 text-white mb-0">A stressful roadside tyre problem was sorted quickly. The technician explained the safest option and helped me get back on the road.</p>
                                         <p className="text-18 text-white">Highly recommend!</p>
                                     </div>
 
@@ -377,7 +343,7 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                 <section className="why-choose-us">
                     <div className="width-fixed">
                         <div className="text-center">
-                            <h2 className="text-42 highlight-text">WHY CHOOSE US</h2>
+                            <h2 className="text-42 highlight-text">WHY CHOOSE OUR EMERGENCY TYRE REPAIR SERVICE</h2>
                         </div>
 
                         <div className="row mt-4 mt-md-5">
@@ -386,14 +352,13 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                                     <div className="img-wrap">
                                         <img src="https://uploads.webspires.co.uk/mtfnwanees/mtf.webp"
                                             width="1000" height="1092"
-                                            alt="Why choose our mobile tyre fitting service - professional technician with van"
+                                            alt="Why choose our emergency tyre repair service - professional technician with van"
                                             loading="lazy" decoding="async" />
                                     </div>
                                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                         xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 234.7"
                                         xmlSpace="preserve" data-position="bottom" data-ct="38730"
                                         className="svg-shape-bottom" width="100%" preserveAspectRatio="none">
-
                                         <path className="p172ec649bf9"
                                             d="M1000,2.2L571,172c-60.6,23.6-85.4,22.6-146.2,0L0,0v234.7h1000V2.2z">
                                         </path>
@@ -407,8 +372,8 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                                         <i className="fa-solid fa-circle-check"></i>
                                     </div>
                                     <div className="">
-                                        <h5 className="text-20 mb-1">Swift Response</h5>
-                                        <p className="text-20 fw-light">Immediate assistance when you need it most.</p>
+                                        <h5 className="text-20 mb-1">Fast Emergency Response</h5>
+                                        <p className="text-20 fw-light">Quick help when you need emergency tyre repair near me at home, work, or roadside.</p>
                                     </div>
                                 </div>
 
@@ -418,7 +383,7 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                                     </div>
                                     <div className="">
                                         <h5 className="text-20 mb-1">24/7 Availability</h5>
-                                        <p className="text-20 fw-light">We're here for you around the clock.</p>
+                                        <p className="text-20 fw-light">Our mobile tyre repair service is available day and night when urgent tyre problems happen.</p>
                                     </div>
                                 </div>
 
@@ -427,17 +392,18 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                                         <i className="fa-solid fa-circle-check"></i>
                                     </div>
                                     <div className="">
-                                        <h5 className="text-20 mb-1">Expertise</h5>
-                                        <p className="text-20 fw-light">Skilled professionals ensuring reliable solutions.</p>
+                                        <h5 className="text-20 mb-1">Skilled Tyre Technicians</h5>
+                                        <p className="text-20 fw-light">Experienced technicians provide safe, professional support for flat tyres and roadside tyre issues.</p>
                                     </div>
                                 </div>
 
                                 <div className="mt-4 pt-2">
                                     <a id="callnow" onClick={(e) => handleCall(e, 'tel:07883288831')} href="tel:07883288831" className="btn-link mx-auto">
                                         <p className="m-0 text-22 pnum">0788 328 8831</p>
-                                        <small className="text-14">24/7 Service - Call Now</small>
+                                        <small className="text-14">Call Now For Emergency Tyre Repair</small>
                                     </a>
-                                    <p className="text-16 text-center mb-0">ETA - From 20 mins in {locationName}</p>
+                                    <p className="text-16 text-center mb-0">Local tyre repair help available for roadside, home, and workplace emergencies.</p>
+                                    <p className="text-16 text-center mb-0">ETA - From 20 mins in {etaLocationText}</p>
                                 </div>
 
                             </div>
@@ -446,8 +412,6 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
 
                     </div>
                 </section>
-
-
 
                 <section className="faq-section">
                     <div className="width-fixed">
@@ -462,53 +426,52 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                                         <i className="fa-solid fa-chevron-down"></i>
                                     </div>
                                     <div className="faq-answer">
-                                        <p className="text-18">Our average response time is 20-35 minutes across {locationName} and
-                                            Birmingham. For emergency roadside callouts, we prioritise getting to you as fast as
-                                            possible, 24 hours a day, 7 days a week.</p>
+                                        <p className="text-18">We aim to reach many local customers from around 20 minutes, depending on traffic, technician availability, tyre issue, and your exact location.</p>
                                     </div>
                                 </div>
                                 <div className={`faq-item ${openFaq === 1 ? 'active' : ''}`}>
                                     <div className="faq-question" onClick={() => setOpenFaq(openFaq === 1 ? null : 1)}>
-                                        <h3 className="text-20 mb-0">What types of tyres do you carry?</h3>
+                                        <h3 className="text-20 mb-0">Do you offer emergency tyre repair near me?</h3>
                                         <i className="fa-solid fa-chevron-down"></i>
                                     </div>
                                     <div className="faq-answer">
-                                        <p className="text-18">We carry a full range of premium, mid-range and budget tyres from brands
-                                            like Michelin, Continental, Pirelli, Bridgestone, Hankook and Goodyear. Our vans are
-                                            stocked with the most common sizes so we can fit on the spot.</p>
+                                        <p className="text-18">Yes. Our emergency mobile tyre repair service can come to your home, workplace, roadside, or another safe location near you.</p>
                                     </div>
                                 </div>
                                 <div className={`faq-item ${openFaq === 2 ? 'active' : ''}`}>
                                     <div className="faq-question" onClick={() => setOpenFaq(openFaq === 2 ? null : 2)}>
-                                        <h3 className="text-20 mb-0">Do you offer puncture repair or only replacement?</h3>
+                                        <h3 className="text-20 mb-0">Can you repair a flat tyre?</h3>
                                         <i className="fa-solid fa-chevron-down"></i>
                                     </div>
                                     <div className="faq-answer">
-                                        <p className="text-18">We offer both! Our technicians will assess whether a puncture repair is
-                                            safe under BS AU 159 standards. If repair is not viable, we can fit a brand new tyre on
-                                            the spot. You only pay for what you need.</p>
+                                        <p className="text-18">We can inspect the tyre and advise the safest option. Some tyre issues can be repaired, while others may need replacement for safety.</p>
                                     </div>
                                 </div>
                                 <div className={`faq-item ${openFaq === 3 ? 'active' : ''}`}>
                                     <div className="faq-question" onClick={() => setOpenFaq(openFaq === 3 ? null : 3)}>
-                                        <h3 className="text-20 mb-0">How much does {titleKwd} cost?</h3>
+                                        <h3 className="text-20 mb-0">Do I need to visit a garage?</h3>
                                         <i className="fa-solid fa-chevron-down"></i>
                                     </div>
                                     <div className="faq-answer">
-                                        <p className="text-18">Prices vary depending on tyre size and brand. We offer transparent,
-                                            competitive pricing with no hidden callout fees. Call us for an instant free quote —
-                                            we'll beat most online prices and include mobile fitting at no extra charge.</p>
+                                        <p className="text-18">No. Our mobile tyre repair team comes to your location, so you do not need to drive on a damaged or flat tyre.</p>
                                     </div>
                                 </div>
                                 <div className={`faq-item ${openFaq === 4 ? 'active' : ''}`}>
                                     <div className="faq-question" onClick={() => setOpenFaq(openFaq === 4 ? null : 4)}>
-                                        <h3 className="text-20 mb-0">Do you provide TPMS sensor replacement?</h3>
+                                        <h3 className="text-20 mb-0">How much does emergency tyre repair cost?</h3>
                                         <i className="fa-solid fa-chevron-down"></i>
                                     </div>
                                     <div className="faq-answer">
-                                        <p className="text-18">Yes, our technicians are fully equipped to diagnose and replace TPMS
-                                            (Tyre Pressure Monitoring System) sensors. We reset and calibrate the system after every
-                                            tyre fitting to ensure your dashboard warning lights are cleared.</p>
+                                        <p className="text-18">The cost depends on your tyre issue, location, service time, and whether repair or replacement is needed. Call us for a clear price before we come out.</p>
+                                    </div>
+                                </div>
+                                <div className={`faq-item ${openFaq === 5 ? 'active' : ''}`}>
+                                    <div className="faq-question" onClick={() => setOpenFaq(openFaq === 5 ? null : 5)}>
+                                        <h3 className="text-20 mb-0">Do you provide roadside tyre repair?</h3>
+                                        <i className="fa-solid fa-chevron-down"></i>
+                                    </div>
+                                    <div className="faq-answer">
+                                        <p className="text-18">Yes. We provide roadside tyre repair support where it is safe and possible to work at your location.</p>
                                     </div>
                                 </div>
                             </div>
@@ -526,39 +489,47 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
                                 "name": "How quickly can you get to me?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": `Our average response time is 20-35 minutes across ${locationName} and Birmingham. For emergency roadside callouts, we prioritise getting to you as fast as possible, 24 hours a day, 7 days a week.`
+                                    "text": "We aim to reach many local customers from around 20 minutes, depending on traffic, technician availability, tyre issue, and your exact location."
                                 }
                             },
                             {
                                 "@type": "Question",
-                                "name": "What types of tyres do you carry?",
+                                "name": "Do you offer emergency tyre repair near me?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "We carry a full range of premium, mid-range and budget tyres from brands like Michelin, Continental, Pirelli, Bridgestone, Hankook and Goodyear."
+                                    "text": "Yes. Our emergency mobile tyre repair service can come to your home, workplace, roadside, or another safe location near you."
                                 }
                             },
                             {
                                 "@type": "Question",
-                                "name": "Do you offer puncture repair or only replacement?",
+                                "name": "Can you repair a flat tyre?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "We offer both! Our technicians will assess whether a puncture repair is safe under BS AU 159 standards. If repair is not viable, we can fit a brand new tyre on the spot."
+                                    "text": "We can inspect the tyre and advise the safest option. Some tyre issues can be repaired, while others may need replacement for safety."
                                 }
                             },
                             {
                                 "@type": "Question",
-                                "name": `How much does ${titleKwd} cost?`,
+                                "name": "Do I need to visit a garage?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Prices vary depending on tyre size and brand. We offer transparent, competitive pricing with no hidden callout fees. Call us for an instant free quote."
+                                    "text": "No. Our mobile tyre repair team comes to your location, so you do not need to drive on a damaged or flat tyre."
                                 }
                             },
                             {
                                 "@type": "Question",
-                                "name": "Do you provide TPMS sensor replacement?",
+                                "name": "How much does emergency tyre repair cost?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Yes, our technicians are fully equipped to diagnose and replace TPMS sensors. We reset and calibrate the system after every tyre fitting."
+                                    "text": "The cost depends on your tyre issue, location, service time, and whether repair or replacement is needed. Call us for a clear price before we come out."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Do you provide roadside tyre repair?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Yes. We provide roadside tyre repair support where it is safe and possible to work at your location."
                                 }
                             }
                         ]
@@ -567,49 +538,48 @@ export default function EmergencyTyreRepair({ titleKwd = "Mobile Tyre Fitting", 
 
                 <Script id="smartlook-init" strategy="lazyOnload">
                     {`
-              window.addEventListener('load', function () {
-                  var bootSmartlook = function () {
-                      window.smartlook || (function (d) {
-                          var o = smartlook = function () {
-                              o.api.push(arguments);
-                          },
-                              h = d.getElementsByTagName('head')[0],
-                              c = d.createElement('script');
+                      window.addEventListener('load', function () {
+                          var bootSmartlook = function () {
+                              window.smartlook || (function (d) {
+                                  var o = smartlook = function () {
+                                      o.api.push(arguments);
+                                  },
+                                      h = d.getElementsByTagName('head')[0],
+                                      c = d.createElement('script');
 
-                          o.api = [];
-                          c.async = true;
-                          c.type = 'text/javascript';
-                          c.charset = 'utf-8';
-                          c.src = 'https://web-sdk.smartlook.com/recorder.js';
-                          h.appendChild(c);
-                      })(document);
+                                  o.api = [];
+                                  c.async = true;
+                                  c.type = 'text/javascript';
+                                  c.charset = 'utf-8';
+                                  c.src = 'https://web-sdk.smartlook.com/recorder.js';
+                                  h.appendChild(c);
+                              })(document);
 
-                      smartlook('init', '43adb320c41f63674d5523146230b9b5c319c691', {
-                          region: 'eu'
+                              smartlook('init', '43adb320c41f63674d5523146230b9b5c319c691', {
+                                  region: 'eu'
+                              });
+                          };
+
+                          if ('requestIdleCallback' in window) {
+                              requestIdleCallback(bootSmartlook);
+                              return;
+                          }
+
+                          setTimeout(bootSmartlook, 1500);
                       });
-                  };
-
-                  if ('requestIdleCallback' in window) {
-                      requestIdleCallback(bootSmartlook);
-                      return;
-                  }
-
-                  setTimeout(bootSmartlook, 1500);
-              });
-            `}
+                    `}
                 </Script>
 
                 <div className="footer-section">
                     <div className="ft-content text-center">
 
                         <p className="text-16 text-h text-white mb-0">
-                            Tyre Fitting Near Me LTD
+                            Mobile Tyre Service Near Me LTD
                         </p>
                         <p className="text-16 text-white mb-0">Copyright 2026, all rights reserved.</p>
 
                         <div className="links d-flex justify-content-center text-uppercase py-2">
                         </div>
-
 
                         <div className="footer-links text-center mt-2 mb-2">
                             <a href="/privacy-policy">Privacy Policy</a>

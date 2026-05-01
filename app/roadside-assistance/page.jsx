@@ -4,6 +4,9 @@ import RoadsideAssistance from "components/RoadsideAssistance";
 
 export const dynamic = 'force-dynamic';
 
+const DEFAULT_TITLE = "Roadside Assistance Near Me | 24/7 Mobile Tyre Help";
+const DEFAULT_DESCRIPTION = "Need roadside assistance near me? Fast 24/7 roadside tyre help at home, work, or roadside. Call now for local roadside support.";
+
 let cachedLocations = null;
 function getLocations() {
     if (cachedLocations) return cachedLocations;
@@ -30,27 +33,46 @@ function getLocations() {
     }
 }
 
-function formatKeyword(str) {
-    return str.split(/[-_ ]+/).map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+function decodeParam(value) {
+    if (typeof value !== "string") return "";
+    try {
+        return decodeURIComponent(value.replace(/\+/g, " "));
+    } catch {
+        return value.replace(/\+/g, " ");
+    }
+}
+
+function toTitleCase(value) {
+    return value.split(/\s+/).filter(Boolean).map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(" ");
+}
+
+function shortenLocationName(location) {
+    if (!location || typeof location !== "string") return null;
+    const cleaned = location.replace(/^London Borough of\s+/i, "").replace(/^Borough of\s+/i, "").replace(/\s+/g, " ").trim();
+    if (!cleaned || /^\d+$/.test(cleaned)) return null;
+    const [primary] = cleaned.split(/,|\s+&\s+|\s+and\s+/i);
+    const short = primary?.trim() || cleaned;
+    if (!short || /^\d+$/.test(short)) return null;
+    return short;
+}
+
+function sanitizeLocation(rawLocation, locMap) {
+    const decoded = decodeParam(rawLocation).trim();
+    if (!decoded) return null;
+    const mapped = locMap.get(decoded);
+    if (mapped) return shortenLocationName(mapped);
+    if (/^\d+$/.test(decoded)) return null;
+    const cleaned = decoded.replace(/[\[\]{}()'"\`]+/g, " ").replace(/[^a-zA-Z0-9&,\-\s]+/g, " ").replace(/\s+/g, " ").trim();
+    if (!cleaned || /^\d+$/.test(cleaned)) return null;
+    return shortenLocationName(toTitleCase(cleaned));
+}
+
+export async function generateMetadata() {
+    return { title: DEFAULT_TITLE, description: DEFAULT_DESCRIPTION };
 }
 
 export default async function RoadsideAssistancePage({ searchParams }) {
     const params = await searchParams;
-
-    let titleKwd = "Roadside Assistance";
-    let locationName = "United Kingdom";
-
-    if (params?.kwd) {
-        titleKwd = formatKeyword(params.kwd);
-    }
-
-    if (params?.loc) {
-        const locMap = getLocations();
-        const loc = locMap.get(params.loc);
-        if (loc) {
-            locationName = loc;
-        }
-    }
-
-    return <main><RoadsideAssistance titleKwd={titleKwd} locationName={locationName} /></main>;
+    const locationName = params?.loc ? sanitizeLocation(params.loc, getLocations()) : null;
+    return <main><RoadsideAssistance locationName={locationName} /></main>;
 }
