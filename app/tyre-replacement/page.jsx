@@ -4,8 +4,8 @@ import TyreReplacement from "components/TyreReplacement";
 
 export const dynamic = 'force-dynamic';
 
-const DEFAULT_TITLE = "Tyre Replacement Near Me | Mobile Tyre Fitting Service";
-const DEFAULT_DESCRIPTION = "Need tyre replacement near me? Fast mobile tyre replacement at home, work, or roadside. Call now for local tyre help.";
+const DEFAULT_TITLE = "Mobile Tyre Replacement Near Me | 24/7 Tyre Service";
+const DEFAULT_DESCRIPTION = "Need mobile tyre replacement near me? Fast mobile tyre service at home, work or roadside. Call now for same day tyre replacement.";
 
 let cachedLocations = null;
 function getLocations() {
