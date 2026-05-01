@@ -5,10 +5,10 @@ import Script from 'next/script';
 
 export default function HomeBody({ keywordText = "mobile tyre fitting near me", locationName = null }) {
   const [openFaq, setOpenFaq] = useState(null);
-    const hasReadableLocation = Boolean(locationName && locationName !== 'Your Area');
+        const hasReadableLocation = Boolean(locationName);
     const etaLocationText = hasReadableLocation ? locationName : 'your area';
     const reviewHeading = hasReadableLocation
-        ? <>Trusted by <span className="highlight-text">1000s</span> Across {locationName} & Outskirts</>
+                ? <>Trusted by <span className="highlight-text">1000s</span> Across {locationName} & Nearby Areas</>
         : <>Trusted by <span className="highlight-text">1000s</span> for Mobile Tyre Fitting Near You</>;
 
   const handleCall = (e, telUrl) => {
@@ -51,7 +51,7 @@ export default function HomeBody({ keywordText = "mobile tyre fitting near me", 
                   <div className="col-md-6 order-1 order-md-0">
                       <h4 className="text-32 highlight-text">24 Hours</h4>
                       <h1 className="text-42">Mobile Tyre Fitting Near Me <br />
-                          {hasReadableLocation ? <><span>in </span><span className="highlight-text">{locationName}</span> & Outskirts</> : null}</h1>
+                          {hasReadableLocation ? <><span>in </span><span className="highlight-text">{locationName}</span></> : null}</h1>
                       <p className="text-18">Need mobile tyre fitting near you? Our local mobile tyre fitters come to your home, workplace, or roadside with fast same-day tyre fitting.</p>
                       <p className="text-26 blue-text border-bottom">ETA from 20 minutes</p>
                       <ul className="ulstyle">
@@ -190,7 +190,7 @@ export default function HomeBody({ keywordText = "mobile tyre fitting near me", 
 
           <section className="service-section">
               <div className="width-fixed px-md-5">
-                  <h2 className="text-60 highlight-text text-center">Mobile Tyre Fitting Near You <br />{hasReadableLocation ? <>in <span className="text-white">{locationName}</span> & <span className="text-white">Outskirts</span></> : null}</h2>
+                  <h2 className="text-60 highlight-text text-center">Mobile Tyre Fitting Near You <br />{hasReadableLocation ? <>in <span className="text-white">{locationName}</span></> : null}</h2>
 
                   <div className="mt-4 pt-2">
                       <a id="callnow" onClick={(e) => handleCall(e, 'tel:07883288831')} href="tel:07883288831" className="btn-link mx-auto">

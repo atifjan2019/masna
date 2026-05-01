@@ -75,11 +75,11 @@ function sanitizeLocation(rawLocation, locMap) {
 
   const mappedLocation = locMap.get(decoded);
   if (mappedLocation) {
-    return mappedLocation;
+    return shortenLocationName(mappedLocation);
   }
 
   if (/^\d+$/.test(decoded)) {
-    return "Your Area";
+    return null;
   }
 
   const cleanedLocation = decoded
@@ -89,10 +89,35 @@ function sanitizeLocation(rawLocation, locMap) {
     .trim();
 
   if (!cleanedLocation || /^\d+$/.test(cleanedLocation)) {
-    return "Your Area";
+    return null;
   }
 
-  return toTitleCase(cleanedLocation);
+  return shortenLocationName(toTitleCase(cleanedLocation));
+}
+
+function shortenLocationName(location) {
+  if (!location || typeof location !== "string") {
+    return null;
+  }
+
+  const cleanedLocation = location
+    .replace(/^London Borough of\s+/i, "")
+    .replace(/^Borough of\s+/i, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  if (!cleanedLocation || /^\d+$/.test(cleanedLocation)) {
+    return null;
+  }
+
+  const [primaryArea] = cleanedLocation.split(/,|\s+&\s+|\s+and\s+/i);
+  const shortLocation = primaryArea?.trim() || cleanedLocation;
+
+  if (!shortLocation || /^\d+$/.test(shortLocation)) {
+    return null;
+  }
+
+  return shortLocation;
 }
 
 function getPageContent(params) {
