@@ -6,7 +6,6 @@ import Script from 'next/script';
 export default function HourTyreFitting({ locationName = null }) {
     const [openFaq, setOpenFaq] = useState(null);
     const hasLocation = typeof locationName === 'string' && locationName.trim().length > 0;
-    const titleKwd = "24 Hour Tyre Fitting Near Me";
     const inLocation = hasLocation ? ` in ${locationName}` : '';
 
     const handleCall = (e, telUrl) => {
