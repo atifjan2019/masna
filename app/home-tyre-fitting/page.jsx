@@ -4,8 +4,8 @@ import HomeTyreFitting from "components/HomeTyreFitting";
 
 export const dynamic = 'force-dynamic';
 
-const DEFAULT_TITLE = "Home Tyre Fitting Near Me | Mobile Tyre Service at Home";
-const DEFAULT_DESCRIPTION = "Need home tyre fitting near me? We come to your home and fit tyres on-site. Call now for fast local tyre fitting at home.";
+const DEFAULT_TITLE = "Home Tyre Fitting Near Me | Tyres Fitted At Home";
+const DEFAULT_DESCRIPTION = "Need home tyre fitting near me? Get tyres fitted at home, work or driveway. Fast mobile tyre service with clear prices. Call now.";
 
 let cachedLocations = null;
 function getLocations() {

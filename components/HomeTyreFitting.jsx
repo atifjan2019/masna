@@ -3,8 +3,10 @@
 import React, { useState } from 'react';
 import Script from 'next/script';
 
-export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locationName = "United Kingdom" }) {
+export default function HomeTyreFitting({ locationName = null }) {
     const [openFaq, setOpenFaq] = useState(null);
+    const hasLocation = typeof locationName === 'string' && locationName.trim().length > 0;
+    const inLocation = hasLocation ? ` in ${locationName}` : '';
 
     const handleCall = (e, telUrl) => {
         e.preventDefault();
@@ -36,9 +38,9 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                                 <i className="fa-solid fa-phone"></i>
                             </div>
                             <p className="m-0 text-22 pnum">0788 328 8831</p>
-                            <small className="text-14">24/7 Service - Call Now</small>
+                            <small className="text-14">Call Now For Home Tyre Fitting</small>
                         </a>
-                        <p className="text-16 mb-0 para">ETA From 20 mins in {locationName}</p>
+                        <p className="text-16 mb-0 para">ETA From 20 mins{inLocation}</p>
                     </div>
                 </header>
 
@@ -46,8 +48,12 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                     <div className="row flex-row-reverse flex-md-row align-items-center">
                         <div className="col-md-6 order-1 order-md-0">
                             <h4 className="text-32 highlight-text">24 Hours</h4>
-                            <h1 className="text-42">{titleKwd} <br />
-                                in <span className="highlight-text">{locationName}</span> & Outskirts</h1>
+                            <h1 className="text-42">
+                                {hasLocation
+                                    ? <>Home Tyre Fitting Near Me <br />in <span className="highlight-text">{locationName}</span></>
+                                    : <>Home Tyre Fitting Near Me</>}
+                            </h1>
+                            <p className="text-20">Need home tyre fitting near me? Our local mobile tyre fitters come to your driveway, home, or workplace and fit your tyres on-site with no garage visit needed.</p>
                             <p className="text-26 blue-text border-bottom">ETA from 20 minutes</p>
                             <ul className="ulstyle">
                                 <li className="text-22">
@@ -58,7 +64,7 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                                         <path
                                             d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
                                     </svg>
-                                    Emergency Roadside Assistance
+                                    Home Tyre Fitting Near Me
                                 </li>
                                 <li className="text-22"><svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24"
                                     data-id="icon-check_box-duotone">
@@ -67,7 +73,7 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                                         d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
                                     <path
                                         d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
-                                </svg> Brand New Tyres - Best Brands</li>
+                                </svg> Tyres Fitted At Home</li>
                                 <li className="text-22"><svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24"
                                     data-id="icon-check_box-duotone">
                                     <path fill="none" d="M0 0h24v24H0V0z"></path>
@@ -75,7 +81,7 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                                         d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
                                     <path
                                         d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
-                                </svg> Affordable & Transparent Prices</li>
+                                </svg> Mobile Tyre Fitting At Home</li>
                                 <li className="text-22"><svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24"
                                     data-id="icon-check_box-duotone">
                                     <path fill="none" d="M0 0h24v24H0V0z"></path>
@@ -83,7 +89,7 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                                         d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
                                     <path
                                         d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
-                                </svg> Trusted & Reliable Service</li>
+                                </svg> Same Day Home Tyre Service</li>
                                 <li className="text-22"><svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24"
                                     data-id="icon-check_box-duotone">
                                     <path fill="none" d="M0 0h24v24H0V0z"></path>
@@ -91,7 +97,7 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                                         d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
                                     <path
                                         d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
-                                </svg> 24/7 Availability - Call Now</li>
+                                </svg> Brand New Tyres Fitted On-Site</li>
                                 <li className="text-22"><svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24"
                                     data-id="icon-check_box-duotone">
                                     <path fill="none" d="M0 0h24v24H0V0z"></path>
@@ -99,15 +105,16 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                                         d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
                                     <path
                                         d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
-                                </svg> 100% Satisfaction Guaranteed</li>
+                                </svg> Clear Prices Before We Arrive</li>
 
                             </ul>
 
                             <div className="mt-4 pt-2">
                                 <a id="callnow" onClick={(e) => handleCall(e, 'tel:07883288831')} href="tel:07883288831" className="btn-link mx-auto mx-md-0">
                                     <p className="m-0 text-22 pnum">0788 328 8831</p>
-                                    <small className="text-14">24/7 Service - Call Now</small>
+                                    <small className="text-14">Call Now For Home Tyre Fitting</small>
                                 </a>
+                                <p className="text-16 mb-0 mt-2">Local home tyre fitting available for driveways, workplaces, and safe private locations.</p>
                             </div>
                         </div>
 
@@ -124,8 +131,8 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                 <section className="step-section d-none d-md-block">
                     <div className="width-fixed">
                         <div className="text-center">
-                            <h2 className="text-50 highlight-text mb-0">Mobile Tyre Fitting - We Come to You</h2>
-                            <p className="text-36 blue-text mt-0">Get Back on The Road in 3 Easy Steps</p>
+                            <h2 className="text-50 highlight-text mb-0">Home Tyre Fitting Near You - We Come to You</h2>
+                            <p className="text-36 blue-text mt-0">Get Tyres Fitted At Home in 3 Easy Steps</p>
                         </div>
 
                         <div className="row justify-content-center text-center">
@@ -137,8 +144,7 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                                     </div>
                                     <div className="step-text">
                                         <h4 className="text-22 highlight-text text-uppercase">Contact and Dispatch</h4>
-                                        <p className="text-18">When you find yourself in need of emergency tyre fitting or roadside
-                                            assistance, simply give us a call.</p>
+                                        <p className="text-18">When you need home tyre fitting near me, call our team and we&apos;ll send a local mobile tyre fitter to your address.</p>
                                     </div>
                                 </div>
                             </div>
@@ -150,9 +156,8 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                                             alt="Mobile tyre fitting service" loading="lazy" decoding="async" />
                                     </div>
                                     <div className="step-text">
-                                        <h4 className="text-22 highlight-text text-uppercase">Mobile Tyre Fitting</h4>
-                                        <p className="text-18">Once our mobile unit arrives, we will efficiently fit your tyres. We
-                                            use state-of-the-art equipment to ensure safe and precise tyre fitting.</p>
+                                        <h4 className="text-22 highlight-text text-uppercase">Tyres Fitted At Home</h4>
+                                        <p className="text-18">Our mobile tyre fitting team arrives with the tools and equipment needed to fit your tyres safely on-site.</p>
                                     </div>
                                 </div>
                             </div>
@@ -164,9 +169,8 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                                             alt="Mobile tyre fitting service" loading="lazy" decoding="async" />
                                     </div>
                                     <div className="step-text">
-                                        <h4 className="text-22 highlight-text text-uppercase">Back on the Road</h4>
-                                        <p className="text-18">We believe in transparent and fair pricing. Before we begin any tyre
-                                            fitting services, you'll receive a clear explanation of the costs involved.</p>
+                                        <h4 className="text-22 highlight-text text-uppercase">Ready to Drive</h4>
+                                        <p className="text-18">We fit the tyre, check everything is secure, and help you get moving without visiting a garage.</p>
                                     </div>
                                 </div>
                             </div>
@@ -176,9 +180,9 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                         <div className="mt-4 pt-2">
                             <a id="callnow" onClick={(e) => handleCall(e, 'tel:07883288831')} href="tel:07883288831" className="btn-link mx-auto">
                                 <p className="m-0 text-22 pnum">0788 328 8831</p>
-                                <small className="text-14">24/7 Service - Call Now</small>
+                                <small className="text-14">Call Now For Home Tyre Fitting</small>
                             </a>
-                            <p className="text-16 text-center mb-0">ETA - From 20 mins in {locationName}</p>
+                            <p className="text-16 text-center mb-0">Local home tyre fitting available for driveways, workplaces, and safe private locations.</p>
                         </div>
 
                     </div>
@@ -186,16 +190,18 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
 
                 <section className="service-section">
                     <div className="width-fixed px-md-5">
-                        <h2 className="text-60 highlight-text text-center"><span style={{ textTransform: "capitalize" }}>{titleKwd}</span> <br /> in <span className="text-white">{locationName}</span> & <span
-                            className="text-white">Outskirts</span>
+                        <h2 className="text-60 highlight-text text-center">
+                            {hasLocation
+                                ? <>Home Tyre Fitting Near You <br />in <span className="text-white">{locationName}</span></>
+                                : <>Home Tyre Fitting Near You</>}
                         </h2>
 
                         <div className="mt-4 pt-2">
                             <a id="callnow" onClick={(e) => handleCall(e, 'tel:07883288831')} href="tel:07883288831" className="btn-link mx-auto">
                                 <p className="m-0 text-22 pnum">0788 328 8831</p>
-                                <small className="text-14">24/7 Service - Call Now</small>
+                                <small className="text-14">Call Now For Home Tyre Fitting</small>
                             </a>
-                            <p className="text-16 text-center mb-0 text-white">ETA - From 20 mins in {locationName}</p>
+                            <p className="text-16 text-center mb-0 text-white">Convenient tyre fitting at home, work, or another safe location.</p>
                         </div>
                     </div>
                 </section>
@@ -203,14 +209,14 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                 <section className="fitting-section">
                     <div className="width-fixed">
                         <div className="text-center mb-4">
-                            <h4 className="blue-text text-24">Your Rapid Response Partner for</h4>
-                            <h2 className="highlight-text text-42">Convenient {titleKwd}</h2>
+                            <h4 className="blue-text text-24">Your Convenient Mobile Partner for</h4>
+                            <h2 className="highlight-text text-42">Fast Home Tyre Fitting Near You</h2>
                         </div>
                         <div className="row pt-4">
 
                             <div className="col-md-7">
                                 <div className="fitting-img">
-                                    <img src="/rapid.webp" alt="Convenient mobile tyre fitting" loading="lazy" decoding="async" />
+                                    <img src="/rapid.webp" alt="Fast home tyre fitting" loading="lazy" decoding="async" />
                                 </div>
                             </div>
 
@@ -221,9 +227,8 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                                         <i className="fa-solid fa-circle-arrow-right"></i>
                                     </div>
                                     <div className="">
-                                        <h5 className="text-20">Brand New Tyres:</h5>
-                                        <p className="text-20 fw-light">We offer a wide selection of brand new tyres to suit all
-                                            budgets and preferences. Available 24/7 in {locationName} & Outskirts.</p>
+                                        <h5 className="text-20">Tyres Fitted At Home:</h5>
+                                        <p className="text-20 fw-light">We come to your driveway or private address and fit your tyres on-site, saving you a garage visit.</p>
                                     </div>
                                 </div>
 
@@ -232,9 +237,8 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                                         <i className="fa-solid fa-circle-arrow-right"></i>
                                     </div>
                                     <div className="">
-                                        <h5 className="text-20">TPMS (Tyre Pressure Monitoring System):</h5>
-                                        <p className="text-20 fw-light">Our experts provide TPMS installation and maintenance to
-                                            ensure your tyres are always at optimal pressure for safe driving.</p>
+                                        <h5 className="text-20">Workplace Tyre Fitting:</h5>
+                                        <p className="text-20 fw-light">If you are at work, our mobile tyre fitter can come to your workplace where it is safe and suitable.</p>
                                     </div>
                                 </div>
 
@@ -243,11 +247,8 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                                         <i className="fa-solid fa-circle-arrow-right"></i>
                                     </div>
                                     <div className="">
-                                        <h5 className="text-20">Tyre Maintenance:</h5>
-                                        <p className="text-20 fw-light">Seamless tyre fitting and maintenance tailored to your
-                                            needs. Trust us for safe and efficient mobile tyre services in
-                                            {locationName} &
-                                            Outskirts.</p>
+                                        <h5 className="text-20">Same Day Home Service:</h5>
+                                        <p className="text-20 fw-light">When tyre stock and local availability allow, we provide same day home tyre fitting near you.</p>
                                     </div>
                                 </div>
 
@@ -262,9 +263,11 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                 <section className="customer-section">
                     <div className="width-fixed">
                         <div className="text-center">
-                            <h4 className="text-36 blue-text">Trusted by <span className="highlight-text">1000s</span> Across
-                                {locationName}
-                                & Outskirts.</h4>
+                            <h4 className="text-36 blue-text">
+                                {hasLocation
+                                    ? <>Trusted by <span className="highlight-text">1000s</span> Across {locationName} &amp; Nearby Areas</>
+                                    : <>Trusted by <span className="highlight-text">1000s</span> for Home Tyre Fitting Near You</>}
+                            </h4>
                             <h2 className="text-60 highlight-text">OUR CUSTOMERS LOVE US</h2>
                         </div>
 
@@ -279,12 +282,7 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
 
                                     <div className="c-card-text text-center">
                                         <i className="fa-solid fa-quote-left quote-icon"></i>
-                                        <p className="text-18 text-white mb-0">Absolutely impressed with the {titleKwd}
-                                            service! When I had a flat tyre on
-                                            a deserted road, I called for help, and the team arrived within 15 minutes. They
-                                            were professional, efficient, and had my tyre changed in no time. Highly recommended
-                                            for their quick response and top-notch service!
-                                        </p>
+                                        <p className="text-18 text-white mb-0">Absolutely impressed with the home tyre fitting service. They came to my driveway, fitted the tyres on-site, and saved me a garage visit. Fast response and very professional throughout.</p>
                                         <p className="text-18 text-white">Highly recommend!</p>
                                     </div>
 
@@ -311,12 +309,7 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
 
                                     <div className="c-card-text text-center">
                                         <i className="fa-solid fa-quote-left quote-icon"></i>
-                                        <p className="text-18 text-white mb-0">I cannot express how grateful I am for the 24-hour
-                                            {titleKwd} service. When my tyre went flat late at night, I called for
-                                            assistance, and the team arrived within 20 minutes. Their commitment to 24/7
-                                            availability is unmatched, and the professionalism of the crew made the entire
-                                            experience stress-free.
-                                        </p>
+                                        <p className="text-18 text-white mb-0">Great service at home and clear prices before arrival. The mobile fitter came quickly, fitted the tyres safely on my drive, and got me back on the road with no stress.</p>
                                         <p className="text-18 text-white">Highly recommend!</p>
 
                                     </div>
@@ -344,14 +337,7 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
 
                                     <div className="c-card-text text-center">
                                         <i className="fa-solid fa-quote-left quote-icon"></i>
-                                        <p className="text-18 text-white mb-0">A flat tyre is never convenient, but this mobile tyre
-                                            fitting service turned a stressful situation into a breeze. Their team arrived
-                                            promptly, assessed the issue, and had my tyre replaced efficiently. The
-                                            professionalism and courtesy of the staff made a significant difference. I highly
-                                            recommend their {titleKwd} service.
-
-
-                                        </p>
+                                        <p className="text-18 text-white mb-0">I needed tyres fitted at home before work and they arrived fast. Friendly technician, tidy driveway service, and no need to wait at a garage. Excellent from start to finish.</p>
                                         <p className="text-18 text-white">Highly recommend!</p>
                                     </div>
 
@@ -377,7 +363,7 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                 <section className="why-choose-us">
                     <div className="width-fixed">
                         <div className="text-center">
-                            <h2 className="text-42 highlight-text">WHY CHOOSE US</h2>
+                            <h2 className="text-42 highlight-text">WHY CHOOSE OUR HOME TYRE FITTING SERVICE</h2>
                         </div>
 
                         <div className="row mt-4 mt-md-5">
@@ -407,8 +393,8 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                                         <i className="fa-solid fa-circle-check"></i>
                                     </div>
                                     <div className="">
-                                        <h5 className="text-20 mb-1">Swift Response</h5>
-                                        <p className="text-20 fw-light">Immediate assistance when you need it most.</p>
+                                        <h5 className="text-20 mb-1">Convenient Home Service</h5>
+                                        <p className="text-20 fw-light">Tyres fitted at your home, workplace, or another safe location.</p>
                                     </div>
                                 </div>
 
@@ -417,8 +403,8 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                                         <i className="fa-solid fa-circle-check"></i>
                                     </div>
                                     <div className="">
-                                        <h5 className="text-20 mb-1">24/7 Availability</h5>
-                                        <p className="text-20 fw-light">We're here for you around the clock.</p>
+                                        <h5 className="text-20 mb-1">No Garage Visit</h5>
+                                        <p className="text-20 fw-light">We come to you, saving you time, travel, and waiting around.</p>
                                     </div>
                                 </div>
 
@@ -427,17 +413,17 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                                         <i className="fa-solid fa-circle-check"></i>
                                     </div>
                                     <div className="">
-                                        <h5 className="text-20 mb-1">Expertise</h5>
-                                        <p className="text-20 fw-light">Skilled professionals ensuring reliable solutions.</p>
+                                        <h5 className="text-20 mb-1">Skilled Mobile Fitters</h5>
+                                        <p className="text-20 fw-light">Experienced technicians provide safe, professional home tyre fitting near you.</p>
                                     </div>
                                 </div>
 
                                 <div className="mt-4 pt-2">
                                     <a id="callnow" onClick={(e) => handleCall(e, 'tel:07883288831')} href="tel:07883288831" className="btn-link mx-auto">
                                         <p className="m-0 text-22 pnum">0788 328 8831</p>
-                                        <small className="text-14">24/7 Service - Call Now</small>
+                                        <small className="text-14">Call Now For Home Tyre Fitting</small>
                                     </a>
-                                    <p className="text-16 text-center mb-0">ETA - From 20 mins in {locationName}</p>
+                                    <p className="text-16 text-center mb-0">Local home tyre fitting available for driveways, workplaces, and safe private locations.</p>
                                 </div>
 
                             </div>
@@ -458,57 +444,56 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                             <div className="col-md-10">
                                 <div className={`faq-item ${openFaq === 0 ? 'active' : ''}`}>
                                     <div className="faq-question" onClick={() => setOpenFaq(openFaq === 0 ? null : 0)}>
-                                        <h3 className="text-20 mb-0">How quickly can you get to me?</h3>
+                                        <h3 className="text-20 mb-0">How quickly can you get to my home?</h3>
                                         <i className="fa-solid fa-chevron-down"></i>
                                     </div>
                                     <div className="faq-answer">
-                                        <p className="text-18">Our average response time is 20-35 minutes across {locationName} and
-                                            Birmingham. For emergency roadside callouts, we prioritise getting to you as fast as
-                                            possible, 24 hours a day, 7 days a week.</p>
+                                        <p className="text-18">We aim to reach many local customers from around 20 minutes, depending on traffic, fitter availability, tyre stock, and your exact location.</p>
                                     </div>
                                 </div>
                                 <div className={`faq-item ${openFaq === 1 ? 'active' : ''}`}>
                                     <div className="faq-question" onClick={() => setOpenFaq(openFaq === 1 ? null : 1)}>
-                                        <h3 className="text-20 mb-0">What types of tyres do you carry?</h3>
+                                        <h3 className="text-20 mb-0">Do you offer home tyre fitting near me?</h3>
                                         <i className="fa-solid fa-chevron-down"></i>
                                     </div>
                                     <div className="faq-answer">
-                                        <p className="text-18">We carry a full range of premium, mid-range and budget tyres from brands
-                                            like Michelin, Continental, Pirelli, Bridgestone, Hankook and Goodyear. Our vans are
-                                            stocked with the most common sizes so we can fit on the spot.</p>
+                                        <p className="text-18">Yes. Our home tyre fitting service can come to your driveway, workplace, or another safe private location near you.</p>
                                     </div>
                                 </div>
                                 <div className={`faq-item ${openFaq === 2 ? 'active' : ''}`}>
                                     <div className="faq-question" onClick={() => setOpenFaq(openFaq === 2 ? null : 2)}>
-                                        <h3 className="text-20 mb-0">Do you offer puncture repair or only replacement?</h3>
+                                        <h3 className="text-20 mb-0">Can you fit tyres on my driveway?</h3>
                                         <i className="fa-solid fa-chevron-down"></i>
                                     </div>
                                     <div className="faq-answer">
-                                        <p className="text-18">We offer both! Our technicians will assess whether a puncture repair is
-                                            safe under BS AU 159 standards. If repair is not viable, we can fit a brand new tyre on
-                                            the spot. You only pay for what you need.</p>
+                                        <p className="text-18">Yes, where the location is safe and suitable for the technician to work.</p>
                                     </div>
                                 </div>
                                 <div className={`faq-item ${openFaq === 3 ? 'active' : ''}`}>
                                     <div className="faq-question" onClick={() => setOpenFaq(openFaq === 3 ? null : 3)}>
-                                        <h3 className="text-20 mb-0">How much does {titleKwd} cost?</h3>
+                                        <h3 className="text-20 mb-0">Do I need to visit a garage?</h3>
                                         <i className="fa-solid fa-chevron-down"></i>
                                     </div>
                                     <div className="faq-answer">
-                                        <p className="text-18">Prices vary depending on tyre size and brand. We offer transparent,
-                                            competitive pricing with no hidden callout fees. Call us for an instant free quote —
-                                            we'll beat most online prices and include mobile fitting at no extra charge.</p>
+                                        <p className="text-18">No. Our mobile tyre fitter comes to your location and fits the tyre on-site.</p>
                                     </div>
                                 </div>
                                 <div className={`faq-item ${openFaq === 4 ? 'active' : ''}`}>
                                     <div className="faq-question" onClick={() => setOpenFaq(openFaq === 4 ? null : 4)}>
-                                        <h3 className="text-20 mb-0">Do you provide TPMS sensor replacement?</h3>
+                                        <h3 className="text-20 mb-0">How much does home tyre fitting cost?</h3>
                                         <i className="fa-solid fa-chevron-down"></i>
                                     </div>
                                     <div className="faq-answer">
-                                        <p className="text-18">Yes, our technicians are fully equipped to diagnose and replace TPMS
-                                            (Tyre Pressure Monitoring System) sensors. We reset and calibrate the system after every
-                                            tyre fitting to ensure your dashboard warning lights are cleared.</p>
+                                        <p className="text-18">The cost depends on tyre size, tyre brand, location, and service time. Call us for a clear price before we come out.</p>
+                                    </div>
+                                </div>
+                                <div className={`faq-item ${openFaq === 5 ? 'active' : ''}`}>
+                                    <div className="faq-question" onClick={() => setOpenFaq(openFaq === 5 ? null : 5)}>
+                                        <h3 className="text-20 mb-0">Can you fit tyres at my workplace?</h3>
+                                        <i className="fa-solid fa-chevron-down"></i>
+                                    </div>
+                                    <div className="faq-answer">
+                                        <p className="text-18">Yes. We can fit tyres at your workplace where it is safe, legal, and suitable for the technician.</p>
                                     </div>
                                 </div>
                             </div>
@@ -523,42 +508,50 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                         "mainEntity": [
                             {
                                 "@type": "Question",
-                                "name": "How quickly can you get to me?",
+                                "name": "How quickly can you get to my home?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": `Our average response time is 20-35 minutes across ${locationName} and Birmingham. For emergency roadside callouts, we prioritise getting to you as fast as possible, 24 hours a day, 7 days a week.`
+                                    "text": "We aim to reach many local customers from around 20 minutes, depending on traffic, fitter availability, tyre stock, and your exact location."
                                 }
                             },
                             {
                                 "@type": "Question",
-                                "name": "What types of tyres do you carry?",
+                                "name": "Do you offer home tyre fitting near me?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "We carry a full range of premium, mid-range and budget tyres from brands like Michelin, Continental, Pirelli, Bridgestone, Hankook and Goodyear."
+                                    "text": "Yes. Our home tyre fitting service can come to your driveway, workplace, or another safe private location near you."
                                 }
                             },
                             {
                                 "@type": "Question",
-                                "name": "Do you offer puncture repair or only replacement?",
+                                "name": "Can you fit tyres on my driveway?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "We offer both! Our technicians will assess whether a puncture repair is safe under BS AU 159 standards. If repair is not viable, we can fit a brand new tyre on the spot."
+                                    "text": "Yes, where the location is safe and suitable for the technician to work."
                                 }
                             },
                             {
                                 "@type": "Question",
-                                "name": `How much does ${titleKwd} cost?`,
+                                "name": "Do I need to visit a garage?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Prices vary depending on tyre size and brand. We offer transparent, competitive pricing with no hidden callout fees. Call us for an instant free quote."
+                                    "text": "No. Our mobile tyre fitter comes to your location and fits the tyre on-site."
                                 }
                             },
                             {
                                 "@type": "Question",
-                                "name": "Do you provide TPMS sensor replacement?",
+                                "name": "How much does home tyre fitting cost?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Yes, our technicians are fully equipped to diagnose and replace TPMS sensors. We reset and calibrate the system after every tyre fitting."
+                                    "text": "The cost depends on tyre size, tyre brand, location, and service time. Call us for a clear price before we come out."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Can you fit tyres at my workplace?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Yes. We can fit tyres at your workplace where it is safe, legal, and suitable for the technician."
                                 }
                             }
                         ]
@@ -603,7 +596,7 @@ export default function HomeTyreFitting({ titleKwd = "Home Tyre Fitting", locati
                     <div className="ft-content text-center">
 
                         <p className="text-16 text-h text-white mb-0">
-                            Tyre Fitting Near Me LTD
+                            Mobile Tyre Service Near Me LTD
                         </p>
                         <p className="text-16 text-white mb-0">Copyright 2026, all rights reserved.</p>
 
