@@ -4,8 +4,8 @@ import HourTyreFitting from "components/24HourTyreTitting";
 
 export const dynamic = 'force-dynamic';
 
-const DEFAULT_TITLE = "24 Hour Tyre Fitting Near Me | Round-the-Clock Mobile Tyre Service";
-const DEFAULT_DESCRIPTION = "Need 24 hour tyre fitting near me? Our mobile tyre service is available day and night. Call now for fast local tyre fitting.";
+const DEFAULT_TITLE = "24 Hour Tyre Fitting Near Me | 24/7 Mobile Tyre Service";
+const DEFAULT_DESCRIPTION = "Need 24 hour tyre fitting near me? Fast 24/7 mobile tyre service at home, work or roadside. Call now for urgent tyre fitting.";
 
 let cachedLocations = null;
 function getLocations() {
