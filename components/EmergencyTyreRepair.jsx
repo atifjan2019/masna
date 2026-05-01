@@ -52,7 +52,7 @@ export default function EmergencyTyreRepair({ locationName = null }) {
                             <h1 className="text-42">Emergency Tyre Repair Near Me <br />
                                 {hasReadableLocation ? <><span>in </span><span className="highlight-text">{locationName}</span></> : null}</h1>
                             <p className="text-18">Need emergency tyre repair near me? Our local mobile tyre repair team comes to your home, workplace, or roadside to help with flat tyres, tyre damage, and urgent tyre problems.</p>
-                            <p className="text-26 blue-text border-bottom">ETA from 20 minutes</p>
+                            <p className="text-26 blue-text border-bottom">ETA from 20 minutes in {etaLocationText}</p>
                             <ul className="ulstyle">
                                 <li className="text-22">
                                     <svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24" data-id="icon-check_box-duotone">
