@@ -114,7 +114,7 @@ export default function RoadsideAssistance({ titleKwd = "Roadside Assistance", l
                         <div className="col-md-6 order-0">
                             <div className="hero-img">
                                 <div className="bg-shade"></div>
-                                <img src="https://uploads.webspires.co.uk/mtfnwanees/a.png" width="700" height="700" alt="Mobile tyre fitting van" fetchPriority="high" decoding="async" />
+                                <img src="/1.webp" width="700" height="700" alt="Mobile tyre fitting van" fetchPriority="high" decoding="async" />
                             </div>
                         </div>
 
