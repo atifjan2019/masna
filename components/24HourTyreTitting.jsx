@@ -3,8 +3,9 @@
 import React, { useState } from 'react';
 import Script from 'next/script';
 
-export default function HourTyreFitting({ titleKwd = "Mobile Tyre Fitting", locationName = "United Kingdom" }) {
+export default function HourTyreFitting({ locationName = null }) {
     const [openFaq, setOpenFaq] = useState(null);
+    const hasLocation = typeof locationName === 'string' && locationName.trim().length > 0;
 
     const handleCall = (e, telUrl) => {
         e.preventDefault();
@@ -36,7 +37,7 @@ export default function HourTyreFitting({ titleKwd = "Mobile Tyre Fitting", loca
                                 <i className="fa-solid fa-phone"></i>
                             </div>
                             <p className="m-0 text-22 pnum">0788 328 8831</p>
-                            <small className="text-14">24/7 Service - Call Now</small>
+                            <small className="text-14">Call Now For 24 Hour Tyre Fitting</small>
                         </a>
                         <p className="text-16 mb-0 para">ETA From 20 mins in {locationName}</p>
                     </div>
@@ -46,8 +47,12 @@ export default function HourTyreFitting({ titleKwd = "Mobile Tyre Fitting", loca
                     <div className="row flex-row-reverse flex-md-row align-items-center">
                         <div className="col-md-6 order-1 order-md-0">
                             <h4 className="text-32 highlight-text">24 Hours</h4>
-                            <h1 className="text-42">{titleKwd} <br />
-                                in <span className="highlight-text">{locationName}</span> & Outskirts</h1>
+                            <h1 className="text-42">
+                                {hasLocation
+                                    ? <>24 Hour Tyre Fitting Near Me <br />in <span className="highlight-text">{locationName}</span></>
+                                    : <>24 Hour Tyre Fitting Near Me</>}
+                            </h1>
+                            <p className="text-20">Need 24 hour tyre fitting near me? Our local mobile tyre fitters come to your home, workplace, or roadside with fast same-day and out-of-hours tyre fitting.</p>
                             <p className="text-26 blue-text border-bottom">ETA from 20 minutes</p>
                             <ul className="ulstyle">
                                 <li className="text-22">
@@ -58,7 +63,7 @@ export default function HourTyreFitting({ titleKwd = "Mobile Tyre Fitting", loca
                                         <path
                                             d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
                                     </svg>
-                                    Emergency Roadside Assistance
+                                    24 Hour Tyre Fitting Near Me
                                 </li>
                                 <li className="text-22"><svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24"
                                     data-id="icon-check_box-duotone">
@@ -67,7 +72,7 @@ export default function HourTyreFitting({ titleKwd = "Mobile Tyre Fitting", loca
                                         d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
                                     <path
                                         d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
-                                </svg> Brand New Tyres - Best Brands</li>
+                                </svg> 24/7 Mobile Tyre Fitting</li>
                                 <li className="text-22"><svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24"
                                     data-id="icon-check_box-duotone">
                                     <path fill="none" d="M0 0h24v24H0V0z"></path>
@@ -75,7 +80,7 @@ export default function HourTyreFitting({ titleKwd = "Mobile Tyre Fitting", loca
                                         d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
                                     <path
                                         d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
-                                </svg> Affordable & Transparent Prices</li>
+                                </svg> Tyre Fitting Open Now</li>
                                 <li className="text-22"><svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24"
                                     data-id="icon-check_box-duotone">
                                     <path fill="none" d="M0 0h24v24H0V0z"></path>
@@ -83,7 +88,7 @@ export default function HourTyreFitting({ titleKwd = "Mobile Tyre Fitting", loca
                                         d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
                                     <path
                                         d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
-                                </svg> Trusted & Reliable Service</li>
+                                </svg> Same Day Tyre Fitting</li>
                                 <li className="text-22"><svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24"
                                     data-id="icon-check_box-duotone">
                                     <path fill="none" d="M0 0h24v24H0V0z"></path>
@@ -91,7 +96,7 @@ export default function HourTyreFitting({ titleKwd = "Mobile Tyre Fitting", loca
                                         d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
                                     <path
                                         d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
-                                </svg> 24/7 Availability - Call Now</li>
+                                </svg> Mobile Tyre Service Near Me</li>
                                 <li className="text-22"><svg className="tcb-icon tcb-local-vars-root" viewBox="0 0 24 24"
                                     data-id="icon-check_box-duotone">
                                     <path fill="none" d="M0 0h24v24H0V0z"></path>
@@ -99,15 +104,16 @@ export default function HourTyreFitting({ titleKwd = "Mobile Tyre Fitting", loca
                                         d="M5 19h14V5H5v14zm2.41-7.4l2.58 2.58 6.59-6.59L17.99 9l-8 8L6 13.01l1.41-1.41z"></path>
                                     <path
                                         d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM17.99 9l-1.41-1.42-6.59 6.59-2.58-2.57-1.42 1.41 4 3.99z"></path>
-                                </svg> 100% Satisfaction Guaranteed</li>
+                                </svg> Clear Prices Before We Arrive</li>
 
                             </ul>
 
                             <div className="mt-4 pt-2">
                                 <a id="callnow" onClick={(e) => handleCall(e, 'tel:07883288831')} href="tel:07883288831" className="btn-link mx-auto mx-md-0">
                                     <p className="m-0 text-22 pnum">0788 328 8831</p>
-                                    <small className="text-14">24/7 Service - Call Now</small>
+                                    <small className="text-14">Call Now For 24 Hour Tyre Fitting</small>
                                 </a>
+                                <p className="text-16 mb-0 mt-2">Local 24/7 mobile tyre fitting available for home, roadside, and workplace tyre issues.</p>
                             </div>
                         </div>
 
