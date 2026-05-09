@@ -4,8 +4,8 @@ import HourTyreFitting from "components/24HourTyreTitting";
 
 export const dynamic = 'force-dynamic';
 
-const DEFAULT_TITLE = "24 Hour Tyre Fitting Near Me | Mobile Tyre Fitter · Out-of-Hours Service";
-const DEFAULT_DESCRIPTION = "Need 24 hour tyre fitting near me? Our mobile fitters come to you at home, work or roadside. ETA from 20 mins. All tyre brands. Clear prices. Call 0788 328 8831.";
+const DEFAULT_TITLE = "24 Hour Tyre Fitting Near Me | 24/7 Mobile Tyre Service";
+const DEFAULT_DESCRIPTION = "Need 24 hour tyre fitting near me? Fast 24/7 mobile tyre service at home, work or roadside. Call now for urgent tyre fitting.";
 
 let cachedLocations = null;
 function getLocations() {
