@@ -4,9 +4,10 @@ import HourTyreFitting from "components/24HourTyreTitting";
 
 export const dynamic = 'force-dynamic';
 
-const DEFAULT_TITLE = "Tyre Fitting Near Me - 24/7 Mobile Service";
-const DEFAULT_DESCRIPTION = "Need 24 hour tyre fitting near me? Fast 24/7 mobile tyre service at home, work or roadside. Call now for urgent tyre fitting.";
+const DEFAULT_TITLE = "Tyre Fitting Near Me | Mobile Fitter From £49 | 24/7 UK";
+const DEFAULT_DESCRIPTION = "Tyre fitting near me from £49 fitted. 24/7 mobile tyre fitters come to your home, work or roadside. ETA from 20 mins. Nationwide UK. Call 0788 328 8831.";
 const CANONICAL_URL = "https://www.mobiletyresfittingnearme.uk/tyre-fitting-near-me";
+const HERO_IMAGE_URL = "https://www.mobiletyresfittingnearme.uk/1.webp";
 
 let cachedLocations = null;
 function getLocations() {
@@ -72,12 +73,35 @@ export async function generateMetadata() {
     return {
         title: DEFAULT_TITLE,
         description: DEFAULT_DESCRIPTION,
-        alternates: { canonical: CANONICAL_URL },
+        alternates: {
+            canonical: CANONICAL_URL,
+            languages: { "en-GB": CANONICAL_URL },
+        },
         openGraph: {
             title: DEFAULT_TITLE,
             description: DEFAULT_DESCRIPTION,
             url: CANONICAL_URL,
             type: "website",
+            siteName: "Tyre Fitting Near Me LTD",
+            locale: "en_GB",
+            images: [
+                {
+                    url: HERO_IMAGE_URL,
+                    width: 800,
+                    height: 800,
+                    alt: "Mobile tyre fitting near me van arriving at customer location",
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: DEFAULT_TITLE,
+            description: DEFAULT_DESCRIPTION,
+            images: [HERO_IMAGE_URL],
+        },
+        other: {
+            "geo.region": "GB",
+            "geo.placename": "United Kingdom",
         },
     };
 }
