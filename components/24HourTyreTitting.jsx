@@ -316,10 +316,10 @@ export default function HourTyreFitting({ locationName = null }) {
                           scroll-snap-type: x mandatory;
                           -webkit-overflow-scrolling: touch;
                           gap: 0;
-                          padding: .25rem 20px 1rem;
+                          padding: .25rem 0 1rem;
                           margin: 0;
                           scrollbar-width: none;
-                          scroll-padding-inline: 20px;
+                          scroll-padding-inline: 0;
                         }
                         .coverage-grid::-webkit-scrollbar { display: none; }
                         .coverage-grid > .coverage-item {
