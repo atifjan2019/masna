@@ -33,15 +33,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-        <link rel="canonical" href="https://www.mobiletyrestoday.uk/" />
-        
         {/* Preload hero image for LCP */}
         <link rel="preload" as="image" href="https://uploads.webspires.co.uk/mtfnwanees/a.png" />
 
         <meta property="og:title" content={metadata.title} />
         <meta property="og:description" content={metadata.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.mobiletyrestoday.uk/" />
         <meta property="og:image" content="/assets/imgs/optimized/hero-1000.webp" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />

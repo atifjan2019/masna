@@ -47,11 +47,11 @@ export default function HourTyreFitting({ locationName = null }) {
                 <div className="hero-section width-fixed">
                     <div className="row flex-row-reverse flex-md-row align-items-center">
                         <div className="col-md-6 order-1 order-md-0">
-                            <h4 className="text-32 highlight-text">24 Hours</h4>
+                            <h4 className="text-32 highlight-text">24/7 Mobile Service</h4>
                             <h1 className="text-42">
                                 {hasLocation
-                                    ? <>24 Hour Tyre Fitting Near Me <br />in <span className="highlight-text">{locationName}</span></>
-                                    : <>24 Hour Tyre Fitting Near Me</>}
+                                    ? <>Tyre Fitting Near Me <br />in <span className="highlight-text">{locationName}</span></>
+                                    : <>Tyre Fitting Near Me</>}
                             </h1>
                             <p className="text-20">Need 24 hour tyre fitting near me? Our local mobile tyre fitters come to your home, workplace, or roadside with fast same-day and out-of-hours tyre fitting.</p>
                             <p className="text-26 blue-text border-bottom">ETA from 20 minutes</p>
@@ -216,7 +216,7 @@ export default function HourTyreFitting({ locationName = null }) {
 
                             <div className="col-md-7">
                                 <div className="fitting-img">
-                                    <img src="/rapid.webp" alt="Fast 24 hour mobile tyre fitting" loading="lazy" decoding="async" />
+                                    <img src="/rapid.webp" width="378" height="430" alt="Fast 24 hour mobile tyre fitting" loading="lazy" decoding="async" />
                                 </div>
                             </div>
 
@@ -260,6 +260,187 @@ export default function HourTyreFitting({ locationName = null }) {
 
 
 
+                <section className="coverage-section py-5">
+                    <style>{`
+                      .coverage-grid {
+                        display: grid;
+                        grid-template-columns: repeat(4, minmax(0, 1fr));
+                        gap: 1.5rem;
+                      }
+                      .coverage-card {
+                        background: #fff;
+                        border: 1px solid rgba(0,0,0,0.08);
+                        border-radius: 14px;
+                        padding: 1.75rem 1.5rem;
+                        box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+                        transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+                        height: 100%;
+                      }
+                      .coverage-card:hover {
+                        transform: translateY(-4px);
+                        box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+                        border-color: rgba(255,184,0,0.5);
+                      }
+                      .coverage-icon-wrap {
+                        width: 56px; height: 56px;
+                        border-radius: 14px;
+                        background: linear-gradient(135deg, rgba(255,184,0,0.18), rgba(255,184,0,0.06));
+                        display: inline-flex; align-items: center; justify-content: center;
+                        margin-bottom: 1rem;
+                      }
+                      .coverage-region-title { font-size: 1.125rem; font-weight: 700; margin: 0 0 .25rem; }
+                      .coverage-postcodes {
+                        display: inline-block;
+                        font-size: .75rem; font-weight: 600; letter-spacing: .04em;
+                        color: #0b5fff; background: rgba(11,95,255,0.08);
+                        padding: .25rem .55rem; border-radius: 999px;
+                        margin-bottom: .85rem;
+                      }
+                      .coverage-cities { list-style: none; padding: 0; margin: 0; font-size: .95rem; line-height: 1.7; color: #2a2a2a; }
+                      .coverage-cities li { display: flex; align-items: center; }
+                      .coverage-cities li i { color: #ffb800; font-size: 10px; margin-right: .5rem; }
+                      .coverage-more { font-size: .85rem; color: #6c757d; margin-top: .5rem; }
+                      .coverage-scroll-hint { display: none; }
+
+                      @media (max-width: 1199px) {
+                        .coverage-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+                      }
+                      @media (max-width: 991px) {
+                        .coverage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+                      }
+                      @media (max-width: 767px) {
+                        .coverage-grid {
+                          display: flex;
+                          grid-template-columns: none;
+                          overflow-x: auto;
+                          scroll-snap-type: x mandatory;
+                          -webkit-overflow-scrolling: touch;
+                          gap: 0;
+                          padding: .25rem 20px 1rem;
+                          margin: 0;
+                          scrollbar-width: none;
+                          scroll-padding-inline: 20px;
+                        }
+                        .coverage-grid::-webkit-scrollbar { display: none; }
+                        .coverage-grid > .coverage-item {
+                          flex: 0 0 100%;
+                          max-width: 100%;
+                          scroll-snap-align: center;
+                          padding: 0;
+                        }
+                        .coverage-scroll-hint {
+                          display: block;
+                          text-align: center;
+                          font-size: .85rem;
+                          color: #6c757d;
+                          margin-top: .5rem;
+                        }
+                      }
+                    `}</style>
+                    <div className="width-fixed">
+                        <div className="text-center mb-4">
+                            <h4 className="blue-text text-24 mb-1">Nationwide Mobile Tyre Fitters</h4>
+                            <h2 className="text-42 highlight-text">Areas We Cover</h2>
+                            <p className="text-20 mx-auto" style={{ maxWidth: 760 }}>
+                                Our 24/7 mobile tyre fitters operate across the UK. Swipe through the regions below — if you can&apos;t see your postcode, give us a call and we&apos;ll confirm in seconds.
+                            </p>
+                        </div>
+
+                        <div className="coverage-grid mt-2">
+                            {[
+                                {
+                                    icon: "fa-solid fa-city",
+                                    title: "London & Greater London",
+                                    postcodes: "E · N · SE · SW · W · WC",
+                                    cities: ["Central London", "Croydon", "Bromley", "Romford", "Kingston"],
+                                    more: 12,
+                                },
+                                {
+                                    icon: "fa-solid fa-tree-city",
+                                    title: "South East",
+                                    postcodes: "BN · GU · OX · PO · RG · SO",
+                                    cities: ["Brighton", "Guildford", "Reading", "Oxford", "Southampton"],
+                                    more: 5,
+                                },
+                                {
+                                    icon: "fa-solid fa-water",
+                                    title: "South West",
+                                    postcodes: "BA · BS · EX · GL · PL",
+                                    cities: ["Bristol", "Bath", "Exeter", "Plymouth", "Gloucester"],
+                                    more: 3,
+                                },
+                                {
+                                    icon: "fa-solid fa-industry",
+                                    title: "Midlands",
+                                    postcodes: "B · CV · DE · LE · NG · WV",
+                                    cities: ["Birmingham", "Coventry", "Leicester", "Nottingham", "Derby"],
+                                    more: 6,
+                                },
+                                {
+                                    icon: "fa-solid fa-mountain-city",
+                                    title: "North West",
+                                    postcodes: "L · M · PR · WA · BB · FY",
+                                    cities: ["Manchester", "Liverpool", "Preston", "Blackpool", "Chester"],
+                                    more: 9,
+                                },
+                                {
+                                    icon: "fa-solid fa-warehouse",
+                                    title: "North East & Yorkshire",
+                                    postcodes: "LS · S · NE · BD · HU · YO",
+                                    cities: ["Leeds", "Sheffield", "Newcastle", "Bradford", "York"],
+                                    more: 8,
+                                },
+                                {
+                                    icon: "fa-solid fa-leaf",
+                                    title: "East of England",
+                                    postcodes: "CB · CM · MK · NR · IP · PE",
+                                    cities: ["Cambridge", "Milton Keynes", "Chelmsford", "Norwich", "Ipswich"],
+                                    more: 6,
+                                },
+                                {
+                                    icon: "fa-solid fa-road",
+                                    title: "Wales & Borders",
+                                    postcodes: "CF · LL · NP · SA · SY",
+                                    cities: ["Cardiff", "Swansea", "Newport", "Wrexham", "Shrewsbury"],
+                                    more: 2,
+                                },
+                            ].map((region) => (
+                                <div key={region.title} className="coverage-item">
+                                    <div className="coverage-card">
+                                        <div className="coverage-icon-wrap">
+                                            <i className={`${region.icon} highlight-text`} style={{ fontSize: 22 }}></i>
+                                        </div>
+                                        <h3 className="coverage-region-title">{region.title}</h3>
+                                        <span className="coverage-postcodes">{region.postcodes}</span>
+                                        <ul className="coverage-cities">
+                                            {region.cities.map((city) => (
+                                                <li key={city}>
+                                                    <i className="fa-solid fa-location-dot"></i>
+                                                    {city}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        {region.more > 0 && (
+                                            <p className="coverage-more mb-0">+ {region.more} more nearby towns</p>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <p className="coverage-scroll-hint">
+                            <i className="fa-solid fa-arrow-left me-1"></i> Swipe to see more regions <i className="fa-solid fa-arrow-right ms-1"></i>
+                        </p>
+
+                        <div className="text-center mt-4 pt-2">
+                            <p className="text-18 mb-2">Not sure if we cover your postcode?</p>
+                            <a id="callnow" onClick={(e) => handleCall(e, 'tel:07883288831')} href="tel:07883288831" className="btn-link mx-auto">
+                                <p className="m-0 text-22 pnum">0788 328 8831</p>
+                                <small className="text-14">Call to confirm in seconds</small>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
                 <section className="customer-section">
                     <div className="width-fixed">
                         <div className="text-center">
@@ -282,8 +463,8 @@ export default function HourTyreFitting({ locationName = null }) {
 
                                     <div className="c-card-text text-center">
                                         <i className="fa-solid fa-quote-left quote-icon"></i>
-                                        <p className="text-18 text-white mb-0">Absolutely impressed with the 24 hour tyre fitting service. I called late at night, a mobile tyre fitter arrived fast, and they had me back on the road with no garage visit needed.</p>
-                                        <p className="text-18 text-white">Highly recommend!</p>
+                                        <p className="text-18 text-white mb-0">Got a flat at 2am on the M25 and these guys were a lifesaver. A mobile tyre fitter was with me in under 30 minutes, fitted a new tyre on the hard shoulder, and the price was exactly what I was quoted on the phone.</p>
+                                        <p className="text-18 text-white">Couldn&apos;t recommend more!</p>
                                     </div>
 
                                     <div className="c-card-foot text-center">
@@ -294,7 +475,7 @@ export default function HourTyreFitting({ locationName = null }) {
                                             <i className="fa-solid fa-star"></i>
                                             <i className="fa-solid fa-star"></i>
                                         </div>
-                                        <h5 className="text-20 text-white fw-normal mb-0 mt-1">Jessy Jhon</h5>
+                                        <h5 className="text-20 text-white fw-normal mb-0 mt-1">James Henderson</h5>
                                     </div>
 
                                 </div>
@@ -309,9 +490,8 @@ export default function HourTyreFitting({ locationName = null }) {
 
                                     <div className="c-card-text text-center">
                                         <i className="fa-solid fa-quote-left quote-icon"></i>
-                                        <p className="text-18 text-white mb-0">Fast response and clear pricing from start to finish. They provided same day tyre fitting at my home, and the mobile tyre fitter was professional and efficient throughout.</p>
-                                        <p className="text-18 text-white">Highly recommend!</p>
-
+                                        <p className="text-18 text-white mb-0">Punctured a tyre on the school run and had no time to sit at a garage. Booked online and they came to my driveway within the hour. Friendly, professional, and the kids didn&apos;t miss a thing.</p>
+                                        <p className="text-18 text-white">Brilliant service!</p>
                                     </div>
 
                                     <div className="c-card-foot text-center">
@@ -322,7 +502,7 @@ export default function HourTyreFitting({ locationName = null }) {
                                             <i className="fa-solid fa-star"></i>
                                             <i className="fa-solid fa-star"></i>
                                         </div>
-                                        <h5 className="text-20 text-white fw-normal mb-0 mt-1">Emma Steve</h5>
+                                        <h5 className="text-20 text-white fw-normal mb-0 mt-1">Sophie Patel</h5>
                                     </div>
 
                                 </div>
@@ -337,8 +517,8 @@ export default function HourTyreFitting({ locationName = null }) {
 
                                     <div className="c-card-text text-center">
                                         <i className="fa-solid fa-quote-left quote-icon"></i>
-                                        <p className="text-18 text-white mb-0">Great late night tyre help when I needed tyre fitting open now. The technician reached me quickly at the roadside, fitted the tyre safely, and got me moving again without delay.</p>
-                                        <p className="text-18 text-white">Highly recommend!</p>
+                                        <p className="text-18 text-white mb-0">Blowout on a Sunday evening when every garage was shut. Called this lot, ETA was 25 mins, tyre was fitted and balanced on the spot. Honest pricing and a properly skilled fitter.</p>
+                                        <p className="text-18 text-white">Will use again.</p>
                                     </div>
 
                                     <div className="c-card-foot text-center">
@@ -349,7 +529,7 @@ export default function HourTyreFitting({ locationName = null }) {
                                             <i className="fa-solid fa-star"></i>
                                             <i className="fa-solid fa-star"></i>
                                         </div>
-                                        <h5 className="text-20 text-white fw-normal mb-0 mt-1">Josh Lu</h5>
+                                        <h5 className="text-20 text-white fw-normal mb-0 mt-1">Daniel O&apos;Connor</h5>
                                     </div>
 
                                 </div>
@@ -501,6 +681,76 @@ export default function HourTyreFitting({ locationName = null }) {
                     </div>
                 </section>
 
+                <Script id="localbusiness-schema" type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "LocalBusiness",
+                        "@id": "https://www.mobiletyresfittingnearme.uk/#localbusiness",
+                        "name": "Tyre Fitting Near Me LTD",
+                        "image": "https://www.mobiletyresfittingnearme.uk/1.webp",
+                        "url": "https://www.mobiletyresfittingnearme.uk/tyre-fitting-near-me",
+                        "telephone": "+44-788-328-8831",
+                        "priceRange": "££",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "[BUSINESS_STREET_ADDRESS]",
+                            "addressLocality": "[BUSINESS_CITY]",
+                            "postalCode": "[BUSINESS_POSTCODE]",
+                            "addressCountry": "GB"
+                        },
+                        "openingHoursSpecification": [
+                            {
+                                "@type": "OpeningHoursSpecification",
+                                "dayOfWeek": [
+                                    "Monday", "Tuesday", "Wednesday", "Thursday",
+                                    "Friday", "Saturday", "Sunday"
+                                ],
+                                "opens": "00:00",
+                                "closes": "23:59"
+                            }
+                        ],
+                        "areaServed": {
+                            "@type": "Country",
+                            "name": "United Kingdom"
+                        },
+                        "identifier": {
+                            "@type": "PropertyValue",
+                            "propertyID": "Companies House",
+                            "value": "17137653"
+                        }
+                    })}
+                </Script>
+
+                <Script id="service-schema" type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "serviceType": "24 Hour Mobile Tyre Fitting",
+                        "name": "24/7 Mobile Tyre Fitting",
+                        "description": "Fast 24/7 mobile tyre fitting at home, workplace, or roadside. ETA from 20 minutes.",
+                        "provider": {
+                            "@type": "LocalBusiness",
+                            "@id": "https://www.mobiletyresfittingnearme.uk/#localbusiness",
+                            "name": "Tyre Fitting Near Me LTD",
+                            "telephone": "+44-788-328-8831"
+                        },
+                        "areaServed": {
+                            "@type": "Country",
+                            "name": "United Kingdom"
+                        },
+                        "hoursAvailable": {
+                            "@type": "OpeningHoursSpecification",
+                            "dayOfWeek": [
+                                "Monday", "Tuesday", "Wednesday", "Thursday",
+                                "Friday", "Saturday", "Sunday"
+                            ],
+                            "opens": "00:00",
+                            "closes": "23:59"
+                        },
+                        "url": "https://www.mobiletyresfittingnearme.uk/tyre-fitting-near-me"
+                    })}
+                </Script>
+
                 <Script id="faq-schema" type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
@@ -596,9 +846,16 @@ export default function HourTyreFitting({ locationName = null }) {
                     <div className="ft-content text-center">
 
                         <p className="text-16 text-h text-white mb-0">
-                            Mobile Tyre Service Near Me LTD
+                            Tyre Fitting Near Me LTD
                         </p>
-                        <p className="text-16 text-white mb-0">Copyright 2026, all rights reserved.</p>
+                        <p className="text-14 text-white mb-1">Companies House No: 17137653</p>
+                        <p className="text-14 text-white mb-1">
+                            Phone: <a href="tel:07883288831" className="text-white">0788 328 8831</a>
+                            &nbsp;&middot;&nbsp;
+                            WhatsApp: +44 7722 127759
+                        </p>
+                        <p className="text-14 text-white mb-0">Open 24/7, Monday – Sunday (including bank holidays)</p>
+                        <p className="text-16 text-white mb-0 mt-2">Copyright 2026, all rights reserved.</p>
 
                         <div className="links d-flex justify-content-center text-uppercase py-2">
                         </div>

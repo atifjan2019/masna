@@ -4,8 +4,9 @@ import HourTyreFitting from "components/24HourTyreTitting";
 
 export const dynamic = 'force-dynamic';
 
-const DEFAULT_TITLE = "24 Hour Tyre Fitting Near Me | 24/7 Mobile Tyre Service";
+const DEFAULT_TITLE = "Tyre Fitting Near Me - 24/7 Mobile Service";
 const DEFAULT_DESCRIPTION = "Need 24 hour tyre fitting near me? Fast 24/7 mobile tyre service at home, work or roadside. Call now for urgent tyre fitting.";
+const CANONICAL_URL = "https://www.mobiletyresfittingnearme.uk/tyre-fitting-near-me";
 
 let cachedLocations = null;
 function getLocations() {
@@ -68,7 +69,17 @@ function sanitizeLocation(rawLocation, locMap) {
 }
 
 export async function generateMetadata() {
-    return { title: DEFAULT_TITLE, description: DEFAULT_DESCRIPTION };
+    return {
+        title: DEFAULT_TITLE,
+        description: DEFAULT_DESCRIPTION,
+        alternates: { canonical: CANONICAL_URL },
+        openGraph: {
+            title: DEFAULT_TITLE,
+            description: DEFAULT_DESCRIPTION,
+            url: CANONICAL_URL,
+            type: "website",
+        },
+    };
 }
 
 export default async function TwentyFourHourTyreFittingPage({ searchParams }) {
