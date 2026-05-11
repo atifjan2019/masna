@@ -558,40 +558,6 @@ export default function RoadsideAssistance({ locationName = null }) {
                     })}
                 </Script>
 
-                <Script id="smartlook-init" strategy="lazyOnload">
-                    {`
-              window.addEventListener('load', function () {
-                  var bootSmartlook = function () {
-                      window.smartlook || (function (d) {
-                          var o = smartlook = function () {
-                              o.api.push(arguments);
-                          },
-                              h = d.getElementsByTagName('head')[0],
-                              c = d.createElement('script');
-
-                          o.api = [];
-                          c.async = true;
-                          c.type = 'text/javascript';
-                          c.charset = 'utf-8';
-                          c.src = 'https://web-sdk.smartlook.com/recorder.js';
-                          h.appendChild(c);
-                      })(document);
-
-                      smartlook('init', 'aca46ea591b1492fb9ded798a83c9344adb140ee', {
-                          region: 'eu'
-                      });
-                  };
-
-                  if ('requestIdleCallback' in window) {
-                      requestIdleCallback(bootSmartlook);
-                      return;
-                  }
-
-                  setTimeout(bootSmartlook, 1500);
-              });
-            `}
-                </Script>
-
                 <div className="footer-section">
                     <div className="ft-content text-center">
 
